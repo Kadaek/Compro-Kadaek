@@ -1,224 +1,326 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { KadaekMonogram } from "@/components/KadaekLogo";
-import { FastForward } from "lucide-react";
+import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
 
 export default function Preloader() {
-  const [phase, setPhase] = useState<0 | 1 | 2 | 3>(0);
-  const [percent, setPercent] = useState(0);
+  // Stages:
+  // 0: 0.0s - 1.0s — THE STRUGGLE
+  // 1: 1.0s - 2.2s — THE REALIZATION
+  // 2: 2.2s - 3.5s — SCREW IT, LET'S BUILD
+  // 3: 3.5s - 4.5s — THE PAYOFF
+  // 4: 4.5s - 5.0s — KADAEK REVEAL
+  const [stage, setStage] = useState<0 | 1 | 2 | 3 | 4>(0);
   const [isDone, setIsDone] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
-  const handleSkip = () => {
-    setIsDone(true);
-    setTimeout(() => setShouldRender(false), 900);
-  };
-
   useEffect(() => {
-    // Phase 0: Frustrated Solo Dev / Overtime (0s - 1.6s)
-    // Phase 1: Connection with Buddy / Two Nodes Merge (1.6s - 3.2s)
-    // Phase 2: Birth of Kadaek / Pure Skill Ignition (3.2s - 4.8s)
-    // Phase 3: Launch / Wealth / Expansion (4.8s - 5.5s)
+    // Respect reduced-motion preferences
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (mediaQuery.matches) {
+        setIsDone(true);
+        setShouldRender(false);
+        return;
+      }
+    }
 
-    const timer1 = setTimeout(() => setPhase(1), 1600);
-    const timer2 = setTimeout(() => setPhase(2), 3200);
-    const timer3 = setTimeout(() => setPhase(3), 4800);
-    const timerExit = setTimeout(() => {
+    // Storyboard Timeline (Total 5.0 seconds maximum)
+    const t1 = setTimeout(() => setStage(1), 1000); // 1.0s
+    const t2 = setTimeout(() => setStage(2), 2200); // 2.2s
+    const t3 = setTimeout(() => setStage(3), 3500); // 3.5s
+    const t4 = setTimeout(() => setStage(4), 4500); // 4.5s
+    const tEnd = setTimeout(() => {
       setIsDone(true);
-      setTimeout(() => setShouldRender(false), 1000);
-    }, 5600);
-
-    // Percentage Counter
-    const pInterval = setInterval(() => {
-      setPercent((p) => {
-        if (p >= 100) {
-          clearInterval(pInterval);
-          return 100;
-        }
-        return p + 1;
-      });
-    }, 52);
+      setTimeout(() => setShouldRender(false), 600);
+    }, 5000); // 5.0s max
 
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-      clearTimeout(timerExit);
-      clearInterval(pInterval);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+      clearTimeout(tEnd);
     };
   }, []);
+
+  const handleSkip = () => {
+    setIsDone(true);
+    setTimeout(() => setShouldRender(false), 500);
+  };
 
   if (!shouldRender) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-[99999] bg-[#101C2C] text-[#FFFFFF] flex flex-col justify-between p-6 sm:p-12 transition-transform duration-1000 ease-[cubic-bezier(0.85,0,0.15,1)] select-none ${
-        isDone ? "-translate-y-full" : "translate-y-0"
+      role="status"
+      aria-live="polite"
+      className={`fixed inset-0 z-[99999] bg-[#FFFFFF] text-[#101C2C] flex flex-col justify-between p-6 sm:p-10 select-none transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        isDone ? "opacity-0 pointer-events-none scale-[1.02]" : "opacity-100"
       }`}
     >
-      {/* ── Top Bar ── */}
+      {/* ── TOP BAR: Phase Label + Skip ── */}
       <div className="flex items-center justify-between text-xs font-mono text-[#526D9B]">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          <span className="tracking-[0.25em] uppercase text-zinc-300">
-            {phase === 0 && "PHASE 01: THE 9-TO-9 RAT RACE"}
-            {phase === 1 && "PHASE 02: TWO DEVS CONNECTING"}
-            {phase === 2 && "PHASE 03: PURE SKILL STARTUP"}
-            {phase === 3 && "PHASE 04: KADAEK ONLINE"}
+          <span className="w-1.5 h-1.5 rounded-full bg-[#101C2C] animate-pulse" />
+          <span className="tracking-[0.18em] uppercase text-[11px] font-medium">
+            {stage === 0 && "01 / THE STRUGGLE"}
+            {stage === 1 && "02 / THE REALIZATION"}
+            {stage === 2 && "03 / SCREW IT, LET'S BUILD"}
+            {stage === 3 && "04 / THE PAYOFF"}
+            {stage === 4 && "05 / KADAEK"}
           </span>
         </div>
 
         <button
           onClick={handleSkip}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 text-[11px] font-mono text-zinc-400 hover:text-white transition-all pointer-events-auto"
+          className="text-[11px] font-mono tracking-wider uppercase text-[#526D9B] hover:text-[#101C2C] px-3 py-1 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] hover:bg-[#101C2C] hover:text-white transition-all cursor-pointer"
         >
-          <span>LEWATI</span>
-          <FastForward className="w-3 h-3" />
+          SKIP ↗
         </button>
       </div>
 
-      {/* ── Center Stage: Pure Visual Animation ── */}
-      <div className="max-w-xl mx-auto w-full my-auto flex flex-col items-center justify-center">
-        {/* SCENE 0: Frustrated Solo Dev Monitor */}
-        {phase === 0 && (
-          <div className="flex flex-col items-center animate-fade-in">
-            {/* Monitor Frame */}
-            <div className="relative w-56 h-36 rounded-xl border-2 border-rose-500/60 bg-zinc-950 p-4 shadow-[0_0_40px_rgba(244,63,94,0.25)] flex flex-col justify-between overflow-hidden animate-pulse">
-              {/* Screen Top Bar */}
-              <div className="flex items-center justify-between border-b border-rose-500/20 pb-2">
-                <div className="flex gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-rose-500" />
-                  <div className="w-2 h-2 rounded-full bg-amber-500" />
-                  <div className="w-2 h-2 rounded-full bg-zinc-600" />
-                </div>
-                <span className="text-[9px] font-mono text-rose-400 uppercase tracking-wider">
-                  OVERTIME_OVERLOAD
-                </span>
-              </div>
+      {/* ── MAIN STAGE: Editorial Character Illustration ── */}
+      <div className="my-auto flex flex-col items-center justify-center max-w-xl mx-auto w-full">
+        {/* Stage 0 to 3: Character Vignette */}
+        {stage < 4 && (
+          <div className="w-full flex flex-col items-center">
+            {/* SVG Editorial Illustration (Consistent Characters & Desk) */}
+            <div className="w-72 sm:w-96 aspect-[16/10] relative">
+              <svg
+                viewBox="0 0 400 250"
+                className="w-full h-full text-[#101C2C]"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* ── Desk Surface ── */}
+                <rect x="50" y="175" width="300" height="8" rx="4" fill="#101C2C" />
+                <rect x="70" y="183" width="8" height="55" rx="3" fill="#E9EDF2" stroke="#101C2C" strokeWidth="2" />
+                <rect x="322" y="183" width="8" height="55" rx="3" fill="#E9EDF2" stroke="#101C2C" strokeWidth="2" />
 
-              {/* Shaking Error Lines */}
-              <div className="space-y-1.5 py-2">
-                <div className="h-1.5 bg-rose-500/40 rounded w-3/4 animate-pulse" />
-                <div className="h-1.5 bg-rose-500/30 rounded w-full" />
-                <div className="h-1.5 bg-rose-500/50 rounded w-1/2" />
-                <div className="h-1.5 bg-rose-500/20 rounded w-2/3" />
-              </div>
+                {/* Coffee Mug on Desk */}
+                <rect x="75" y="155" width="14" height="20" rx="3" fill="#E9EDF2" stroke="#101C2C" strokeWidth="2" />
+                <path d="M89 160 C94 160 94 170 89 170" stroke="#101C2C" strokeWidth="2" fill="none" />
+                {/* Steam */}
+                <path d="M82 148 Q84 142 82 136" stroke="#526D9B" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.6" />
 
-              {/* Warning Alert */}
-              <div className="text-[10px] font-mono text-rose-400 font-bold flex items-center justify-between">
-                <span>SYSTEM: BURNOUT 99%</span>
-                <span>02:40 AM</span>
-              </div>
+                {/* ── Center Laptop ── */}
+                {/* Base */}
+                <rect x="170" y="170" width="60" height="5" rx="2" fill="#101C2C" />
+                {/* Screen Shell */}
+                <rect x="175" y="112" width="50" height="58" rx="4" fill="#101C2C" />
+                {/* Screen Display */}
+                <rect
+                  x="178"
+                  y="115"
+                  width="44"
+                  height="52"
+                  rx="2"
+                  fill={stage === 3 ? "#101C2C" : "#E9EDF2"}
+                  className="transition-colors duration-300"
+                />
+
+                {/* Laptop Screen Content Based on Stage */}
+                {stage === 0 && (
+                  <g className="animate-pulse">
+                    {/* Bug / Red Error mark */}
+                    <circle cx="200" cy="136" r="8" fill="#F43F5E" />
+                    <text x="200" y="140" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">!</text>
+                    <rect x="184" y="150" width="32" height="3" rx="1.5" fill="#526D9B" opacity="0.5" />
+                  </g>
+                )}
+
+                {stage === 1 && (
+                  <g>
+                    {/* Still Error, but static */}
+                    <circle cx="200" cy="136" r="7" fill="#F43F5E" opacity="0.8" />
+                    <text x="200" y="140" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="bold">!</text>
+                    <rect x="186" y="150" width="28" height="2.5" rx="1" fill="#526D9B" opacity="0.4" />
+                  </g>
+                )}
+
+                {stage === 2 && (
+                  <g>
+                    {/* Assembling modules / Code streams */}
+                    <rect x="183" y="122" width="16" height="6" rx="1.5" fill="#526D9B" />
+                    <rect x="203" y="122" width="14" height="6" rx="1.5" fill="#101C2C" />
+                    <rect x="183" y="132" width="34" height="6" rx="1.5" fill="#526D9B" opacity="0.8" />
+                    <rect x="183" y="142" width="22" height="6" rx="1.5" fill="#101C2C" />
+                    <rect x="183" y="152" width="34" height="4" rx="1" fill="#101C2C" opacity="0.3" />
+                  </g>
+                )}
+
+                {stage === 3 && (
+                  <g>
+                    {/* Success glow / Assembled app */}
+                    <rect x="183" y="122" width="34" height="38" rx="2" fill="#E9EDF2" />
+                    <circle cx="200" cy="138" r="8" fill="#101C2C" />
+                    {/* Checkmark */}
+                    <path d="M196 138 L199 141 L205 135" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <rect x="188" y="152" width="24" height="2" rx="1" fill="#526D9B" />
+                  </g>
+                )}
+
+                {/* ── LEFT CHARACTER (Dev 1 — Expressive / Frustrated to Builder) ── */}
+                <g className="transition-all duration-500">
+                  {/* Body / Torso */}
+                  <path
+                    d={
+                      stage === 0
+                        ? "M110 175 L120 120 L150 125 L145 175 Z" // Slumped
+                        : stage === 1
+                        ? "M100 175 L112 118 L142 120 L140 175 Z" // Leaning back
+                        : "M115 175 L125 118 L155 120 L150 175 Z" // Upright & coding
+                    }
+                    fill="#526D9B"
+                  />
+
+                  {/* Head */}
+                  <circle
+                    cx={stage === 0 ? "138" : stage === 1 ? "124" : "138"}
+                    cy={stage === 0 ? "105" : stage === 1 ? "98" : "96"}
+                    r="15"
+                    fill="#101C2C"
+                  />
+
+                  {/* Face Profile Details */}
+                  {stage === 0 && (
+                    // Facepalm / Slumped in hands
+                    <g>
+                      <path d="M142 108 L152 118 L148 135" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                      {/* Frustration sweat / line */}
+                      <path d="M152 98 Q155 94 153 90" stroke="#526D9B" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+
+                  {stage === 1 && (
+                    // Leaning back, wide eyes looking at Dev 2
+                    <g>
+                      <circle cx="131" cy="98" r="2.5" fill="#FFFFFF" />
+                      <circle cx="132" cy="98" r="1.2" fill="#101C2C" />
+                      {/* Curious open mouth */}
+                      <ellipse cx="132" cy="105" rx="2" ry="1.5" fill="#FFFFFF" />
+                      {/* Arm leaning on chair */}
+                      <path d="M112 135 L95 155 L95 175" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+
+                  {(stage === 2 || stage === 3) && (
+                    // Typing furiously / Focused & proud
+                    <g>
+                      <circle cx="145" cy="96" r="2" fill="#FFFFFF" />
+                      <circle cx="146" cy="96" r="1" fill="#101C2C" />
+                      {/* Arm reaching forward to keyboard */}
+                      <path d="M140 135 L168 152 L180 168" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+                </g>
+
+                {/* ── RIGHT CHARACTER (Dev 2 — Calm typer, Knowing side-eye) ── */}
+                <g className="transition-all duration-500">
+                  {/* Body / Torso */}
+                  <path d="M255 175 L250 118 L280 116 L290 175 Z" fill="#E9EDF2" stroke="#101C2C" strokeWidth="3" />
+
+                  {/* Head */}
+                  <circle cx="264" cy="95" r="15" fill="#101C2C" />
+
+                  {/* Face details */}
+                  {stage === 0 && (
+                    // Calm, focused typing
+                    <g>
+                      <line x1="255" y1="96" x2="259" y2="96" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
+                      {/* Arm to keyboard */}
+                      <path d="M260 132 L238 150 L225 168" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+
+                  {stage === 1 && (
+                    // Knowing side-eye smirk toward Dev 1
+                    <g>
+                      {/* Eye looking left toward friend */}
+                      <ellipse cx="256" cy="95" rx="3" ry="2" fill="#FFFFFF" />
+                      <circle cx="254.5" cy="95" r="1.5" fill="#101C2C" />
+                      {/* Subtle smirk */}
+                      <path d="M254 102 Q258 103 260 100" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                      {/* Arm poised */}
+                      <path d="M260 132 L245 152 L230 166" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+
+                  {stage === 2 && (
+                    // Also typing fast, partner in crime!
+                    <g>
+                      <circle cx="256" cy="95" r="2" fill="#FFFFFF" />
+                      <circle cx="255" cy="95" r="1" fill="#101C2C" />
+                      {/* Arm coding alongside */}
+                      <path d="M258 132 L235 150 L220 168" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+
+                  {stage === 3 && (
+                    // Satisfied nod, confident grin
+                    <g>
+                      <circle cx="256" cy="94" r="2" fill="#FFFFFF" />
+                      <circle cx="255" cy="94" r="1" fill="#101C2C" />
+                      <path d="M253 100 Q258 104 262 101" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+                      {/* Thumbs up or leaning back */}
+                      <path d="M265 132 L280 148 L285 165" stroke="#101C2C" strokeWidth="4" strokeLinecap="round" fill="none" />
+                    </g>
+                  )}
+                </g>
+              </svg>
             </div>
 
-            {/* Stand */}
-            <div className="w-8 h-4 bg-zinc-800" />
-            <div className="w-24 h-1.5 bg-zinc-700 rounded-full" />
-
-            <div className="mt-6 text-xs font-mono uppercase tracking-[0.25em] text-rose-400">
-              Gaji UMR • Lembur Weekend • Muak
+            {/* Narrative Micro-Captions */}
+            <div className="mt-6 text-center h-12 flex flex-col items-center justify-center">
+              {stage === 0 && (
+                <p className="font-sans text-sm sm:text-base text-[#526D9B] font-medium animate-fade-in">
+                  Bug numpuk. Gaji UMR. Lembur weekend tanpa ujung.
+                </p>
+              )}
+              {stage === 1 && (
+                <p className="font-heading text-sm sm:text-base text-[#101C2C] font-bold animate-fade-in">
+                  &ldquo;Lu mikir apa yang lagi gua pikirin?&rdquo;
+                </p>
+              )}
+              {stage === 2 && (
+                <p className="font-heading text-sm sm:text-base text-[#101C2C] font-extrabold animate-fade-in">
+                  Screw it. Modal skill dan nekat—kita bangun startup sendiri.
+                </p>
+              )}
+              {stage === 3 && (
+                <p className="font-sans text-sm sm:text-base text-emerald-600 font-semibold animate-fade-in flex items-center gap-2">
+                  <span>●</span> Build passed. Zero errors. Ready to conquer.
+                </p>
+              )}
             </div>
           </div>
         )}
 
-        {/* SCENE 1: Two Devs Connecting (The Buddy Call) */}
-        {phase === 1 && (
-          <div className="flex flex-col items-center animate-fade-in w-full">
-            <div className="flex items-center justify-between w-full max-w-sm px-4">
-              {/* Dev 1 Node */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 rounded-2xl border-2 border-[#526D9B] bg-[#526D9B]/10 flex items-center justify-center text-white font-mono font-bold shadow-[0_0_30px_rgba(82,109,155,0.4)]">
-                  &lt;DEV_1/&gt;
-                </div>
-                <span className="text-[10px] font-mono text-[#526D9B] tracking-wider">
-                  FOUNDER A
-                </span>
-              </div>
-
-              {/* Animated Glowing Sync Beam */}
-              <div className="flex-1 mx-4 relative flex items-center justify-center">
-                <div className="w-full h-0.5 bg-gradient-to-r from-[#526D9B] via-emerald-400 to-[#526D9B] relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white w-12 animate-ping opacity-60" />
-                </div>
-                <div className="absolute -top-3 px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-[9px] font-mono text-emerald-300 uppercase tracking-widest font-bold">
-                  CALL CONNECTED
-                </div>
-              </div>
-
-              {/* Dev 2 Node */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 rounded-2xl border-2 border-emerald-400/80 bg-emerald-500/10 flex items-center justify-center text-white font-mono font-bold shadow-[0_0_30px_rgba(52,211,153,0.4)]">
-                  &lt;DEV_2/&gt;
-                </div>
-                <span className="text-[10px] font-mono text-emerald-400 tracking-wider">
-                  FOUNDER B
-                </span>
-              </div>
+        {/* Stage 4: Official KADAEK Wordmark & Tagline Payoff */}
+        {stage === 4 && (
+          <div className="flex flex-col items-center text-center animate-fade-in py-6">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-6 drop-shadow-sm">
+              <KadaekMonogram className="w-full h-full text-[#101C2C]" />
             </div>
 
-            <div className="mt-8 text-xs font-mono uppercase tracking-[0.25em] text-emerald-300 font-bold">
-              &quot;Gas Bikin Startup Berdua, Modal Skill!&quot;
-            </div>
-          </div>
-        )}
+            <h1 className="font-heading text-4xl sm:text-6xl font-black tracking-[0.14em] text-[#101C2C] uppercase leading-none">
+              KADAEK
+            </h1>
 
-        {/* SCENE 2: Ignition of Startup & Monogram Fusion */}
-        {phase === 2 && (
-          <div className="flex flex-col items-center animate-fade-in">
-            {/* Pulsing Energy Core */}
-            <div className="relative">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 text-white scale-110 drop-shadow-[0_0_40px_rgba(82,109,155,0.9)] animate-bounce">
-                <KadaekMonogram className="w-full h-full text-white" />
-              </div>
-
-              {/* Rotating Geometric Aura */}
-              <div className="absolute -inset-6 rounded-full border border-dashed border-[#526D9B]/50 animate-spin -z-10" />
-              <div className="absolute -inset-10 rounded-full border border-emerald-400/20 -z-10 animate-ping opacity-30" />
-            </div>
-
-            <div className="mt-8 text-center">
-              <span className="inline-block px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-[10px] font-mono text-emerald-300 uppercase tracking-widest font-bold mb-2">
-                100% MODAL SKILL • NO INVESTOR • NO ORDAL
-              </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-wider uppercase">
-                STARTUP KADAEK LAHIR
-              </h2>
-            </div>
-          </div>
-        )}
-
-        {/* SCENE 3: Wealth & Ready to Conquer */}
-        {phase === 3 && (
-          <div className="flex flex-col items-center animate-fade-in scale-105 transition-transform duration-500">
-            {/* Glowing Golden & Navy Monogram */}
-            <div className="w-28 h-28 drop-shadow-[0_0_50px_rgba(255,255,255,0.9)]">
-              <KadaekMonogram className="w-full h-full text-white" />
-            </div>
-
-            <div className="mt-8 text-center">
-              <span className="text-[11px] font-mono text-emerald-400 tracking-[0.3em] uppercase font-bold">
-                ● STATUS: SIAP KAYA • HAYOLO
-              </span>
-              <h1 className="font-heading text-4xl sm:text-5xl font-black tracking-widest text-white uppercase mt-1">
-                KADAEK IS ONLINE.
-              </h1>
-            </div>
+            <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-[#526D9B] font-bold mt-4">
+              TWO DEVS. ZERO FUNDING. BIG DREAMS.
+            </p>
           </div>
         )}
       </div>
 
-      {/* ── Bottom Bar: Clean Progress ── */}
-      <div className="w-full max-w-md mx-auto">
-        <div className="flex items-center justify-between text-xs font-mono text-[#526D9B] mb-2">
-          <span>PROGRESS</span>
-          <span className="text-white font-semibold tabular-nums">{percent}%</span>
-        </div>
-
-        <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+      {/* ── BOTTOM PROGRESS: Minimal 5-Second Indicator ── */}
+      <div className="max-w-md w-full mx-auto">
+        <div className="w-full h-1 bg-[#E9EDF2] rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-[#526D9B] via-emerald-400 to-white transition-all duration-75 ease-out"
-            style={{ width: `${percent}%` }}
+            className="h-full bg-[#101C2C] transition-all duration-300 ease-linear rounded-full"
+            style={{ width: `${((stage + 1) / 5) * 100}%` }}
           />
         </div>
       </div>
