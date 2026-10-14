@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Preloader from "@/components/Preloader";
 import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
 import { ArrowUpRight, Copy, Check, MessageSquare, Server, Cpu, Zap, ShieldCheck } from "lucide-react";
 
@@ -97,6 +98,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#101C2C] flex flex-col justify-between">
+      {/* ── INITIAL CREATIVE PRELOADER ── */}
+      <Preloader />
+
       {/* ── 1. HEADER / NAVBAR ── */}
       <header className="sticky top-0 z-50 bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#101C2C]/10">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
