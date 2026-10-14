@@ -1,281 +1,282 @@
-import ClientShell from "@/components/ClientShell";
+"use client";
 
-const SERVICES = [
-  { n: "01", title: "Web & Enterprise Apps",           tech: "Next.js · Node · TypeScript · PostgreSQL" },
-  { n: "02", title: "Mobile Development",              tech: "Flutter · React Native · Swift" },
-  { n: "03", title: "Cloud Architecture & DevOps",     tech: "AWS · GCP · Docker · Kubernetes" },
-  { n: "04", title: "UI / UX & Product Design",        tech: "Figma · Prototyping · Motion" },
-  { n: "05", title: "AI Integration & Data Systems",   tech: "LLM · Pipelines · Analytics" },
-];
-
-const TICKER = [
-  "Web Engineering", "Product Design", "System Architecture",
-  "Mobile Apps", "Cloud Infrastructure", "AI Integration",
-  "Performance", "Digital Strategy",
-];
-
-function splitWords(text: string) {
-  return text.split(" ").map((word, i, arr) => (
-    <span
-      key={i}
-      className="split-word"
-      style={{ marginRight: i < arr.length - 1 ? "0.22em" : 0 }}
-    >
-      <span style={{ transitionDelay: `${i * 0.08}s` }}>{word}</span>
-    </span>
-  ));
-}
+import { useEffect, useState } from "react";
+import AudioPlayer from "@/components/AudioPlayer";
+import ShowreelSection from "@/components/ShowreelSection";
+import SelectedWorks from "@/components/SelectedWorks";
+import { ArrowUpRight, Copy, Check, MessageSquare } from "lucide-react";
 
 export default function Home() {
+  const [time, setTime] = useState("");
+  const [copied, setCopied] = useState(false);
+  const email = "halo@kadaek.id";
+
+  useEffect(() => {
+    // ── Custom Cursor Logic ────────────────────────
+    const dot = document.getElementById("cur-dot");
+    const ring = document.getElementById("cur-ring");
+
+    let mx = -500, my = -500, rx = -500, ry = -500, raf = 0;
+
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX;
+      my = e.clientY;
+      if (dot && ring) {
+        dot.style.opacity = "1";
+        ring.style.opacity = "1";
+        dot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
+      }
+    };
+
+    const lerp = () => {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      if (ring) {
+        ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+      }
+      raf = requestAnimationFrame(lerp);
+    };
+    lerp();
+
+    window.addEventListener("mousemove", onMove);
+
+    const onEnter = () => document.body.classList.add("cur-hover");
+    const onLeave = () => document.body.classList.remove("cur-hover");
+
+    document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
+      el.addEventListener("mouseenter", onEnter);
+      el.addEventListener("mouseleave", onLeave);
+    });
+
+    // ── Live Clock WIB ─────────────────────────────
+    const tick = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString("id-ID", {
+          timeZone: "Asia/Jakarta",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })
+      );
+    };
+    tick();
+    const clockInterval = setInterval(tick, 1000);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+      clearInterval(clockInterval);
+    };
+  }, []);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const disciplines = [
+    { num: "01", title: "Enterprise Web Applications", desc: "Next.js, Node.js, TypeScript, PostgreSQL, High-Scale APIs" },
+    { num: "02", title: "Native & Cross-Platform Mobile", desc: "Flutter, React Native, Swift, Performance Optimization" },
+    { num: "03", title: "Cloud Architecture & DevOps", desc: "AWS, GCP, Kubernetes, CI/CD Pipeline, Security Compliance" },
+    { num: "04", title: "Design Systems & Digital Direction", desc: "Interaction Design, 3D Asset Integration, Design Tokens" },
+    { num: "05", title: "AI & Distributed Data Pipelines", desc: "Autonomous Agent Systems, LLM Workflows, Realtime Data" },
+  ];
+
   return (
-    <>
-      <ClientShell />
-
-      {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col">
-
-        {/* Nav */}
-        <nav className="flex items-center justify-between px-8 pt-8 pb-0">
-          {/* Logo */}
-          <div className="flex items-center gap-2.5" data-reveal>
-            <div className="w-7 h-7 rounded-lg bg-white flex items-center justify-center">
-              <span className="text-[11px] font-black text-black tracking-tight">K</span>
+    <div className="min-h-screen bg-[#FFFFFF] text-[#101C2C] selection:bg-[#526D9B] selection:text-white flex flex-col justify-between">
+      {/* ── TOP NAV ── */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FFFFFF]/95 border-b border-[#101C2C]/10 px-6 sm:px-12 py-5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          {/* Brand Logo */}
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-lg bg-[#101C2C] text-[#FFFFFF] flex items-center justify-center font-black text-sm tracking-tighter group-hover:bg-[#526D9B] transition-colors">
+              K
             </div>
-            <span className="text-sm font-semibold tracking-[0.18em] uppercase text-white/80">Kadaek</span>
+            <span className="text-lg font-black tracking-widest uppercase text-[#101C2C] group-hover:text-[#526D9B] transition-colors">
+              Kadaek<span className="text-[#526D9B]">.</span>
+            </span>
+          </a>
+
+          {/* Center Info / Audio Toggle */}
+          <div className="flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-2 text-xs font-mono text-[#526D9B] tracking-wider font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#526D9B] animate-pulse" />
+              <span>WIB {time || "23:25:00"} • JAKARTA</span>
+            </div>
+
+            <AudioPlayer />
           </div>
 
-          {/* Right */}
-          <div className="flex items-center gap-8" data-reveal data-delay="2">
-            <div className="hidden md:flex items-center gap-2 text-[11px] font-mono tracking-widest text-white/25">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <span>WIB&nbsp;</span>
-              <span id="live-clock" />
-            </div>
+          {/* Action Button */}
+          <div className="flex items-center gap-4">
             <a
-              href="https://wa.me/6281234567890?text=Halo%20Kadaek%2C%20saya%20ingin%20konsultasi%20proyek."
+              href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[11px] font-mono uppercase tracking-[0.22em] text-white/40 hover:text-white transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all active:scale-95 shadow-sm"
             >
-              Hubungi ↗
+              <span>Mulai Diskusi</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
-        </nav>
+        </div>
+      </header>
 
-        {/* Main Hero Text */}
-        <div className="flex-1 flex flex-col items-start justify-end px-8 pb-16 md:pb-20 pt-20">
+      {/* ── MAIN CONTENT ── */}
+      <main className="flex-1 bg-[#FFFFFF]">
+        {/* ── HERO SECTION ── */}
+        <section className="pt-24 pb-20 px-6 sm:px-12 max-w-7xl mx-auto bg-[#FFFFFF]">
+          {/* Overline pill */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] tracking-widest uppercase mb-10 font-medium">
+            <span className="w-2 h-2 rounded-full bg-[#101C2C]" />
+            <span>Independent Software Studio & Digital Architecture</span>
+          </div>
 
-          {/* Overline */}
-          <p
-            className="text-[11px] font-mono uppercase tracking-[0.4em] text-white/25 mb-7"
-            data-reveal data-delay="1"
-          >
-            Studio Teknologi — Bandung, Indonesia
-          </p>
-
-          {/* Headline - split word animated */}
-          <h1
-            className="text-[clamp(3.2rem,9.5vw,10rem)] font-black leading-[0.88] tracking-[-0.03em] text-white max-w-[14ch]"
-            data-split
-          >
-            {splitWords("Kami Membangun Masa Depan Digital.")}
+          {/* Giant Editorial Headline */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold text-[#101C2C] tracking-tight leading-[1.05] max-w-5xl">
+            Membangun Sistem Digital Berkelas Dunia dengan{" "}
+            <span className="text-[#526D9B]">Presisi & Dampak Nyata.</span>
           </h1>
 
-          {/* Bottom Row */}
-          <div className="mt-16 flex flex-col md:flex-row items-start md:items-end justify-between w-full gap-8">
-            <p
-              className="text-sm text-white/35 max-w-xs leading-relaxed font-light"
-              data-reveal data-delay="3"
-            >
-              Rekayasa presisi untuk perusahaan yang berambisi lebih dari rata-rata.
+          {/* Manifesto & Quick Stats Row */}
+          <div className="mt-16 pt-8 border-t border-[#101C2C]/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <p className="md:col-span-7 text-lg sm:text-xl font-normal text-[#526D9B] leading-relaxed">
+              Kadaek merancang, merekayasa, dan mempercepat produk teknologi bagi startup visioner dan perusahaan terkemuka. Menggabungkan arsitektur software tangguh dengan pengalaman visual level dunia.
             </p>
-            <div className="flex items-center gap-6" data-reveal data-delay="4">
-              <a
-                href="#reel"
-                className="group flex items-center gap-3 text-[11px] font-mono uppercase tracking-[0.25em] text-white/40 hover:text-white transition-colors duration-400"
-              >
-                <span className="w-8 h-8 rounded-full border border-white/15 group-hover:border-white/40 flex items-center justify-center transition-colors">
-                  <svg viewBox="0 0 10 10" className="w-2.5 h-2.5 fill-current">
-                    <polygon points="2,1 9,5 2,9" />
-                  </svg>
-                </span>
-                Lihat Reel
-              </a>
-              <a
-                href="#services"
-                className="text-[11px] font-mono uppercase tracking-[0.25em] text-white/40 hover:text-white transition-colors duration-300"
-              >
-                Layanan ↓
-              </a>
+
+            <div className="md:col-span-5 flex flex-col sm:flex-row gap-4 md:justify-end text-xs font-mono">
+              <div className="p-5 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]">
+                <div className="text-[#526D9B] uppercase tracking-widest text-[11px] font-medium">Kapasitas Kemitraan</div>
+                <div className="text-[#101C2C] font-bold mt-1 text-sm">● Q1 & Q2 2026 Aktif</div>
+              </div>
+
+              <div className="p-5 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]">
+                <div className="text-[#526D9B] uppercase tracking-widest text-[11px] font-medium">Waktu Rilis Rata-rata</div>
+                <div className="text-[#101C2C] font-bold mt-1 text-sm">3–6 Minggu Sprint</div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── TICKER MARQUEE ── */}
+        <div className="border-y border-[#101C2C]/10 py-4 bg-[#E9EDF2] overflow-hidden">
+          <div className="ticker-track text-xs font-mono uppercase tracking-[0.3em] text-[#101C2C] font-semibold">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="flex items-center gap-8 shrink-0 px-4">
+                <span>Enterprise Architecture</span>
+                <span className="text-[#526D9B]">•</span>
+                <span>Next.js & Cloud Core</span>
+                <span className="text-[#526D9B]">•</span>
+                <span>Awwwards Grade Motion</span>
+                <span className="text-[#526D9B]">•</span>
+                <span>Zero Latency Optimization</span>
+                <span className="text-[#526D9B]">•</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-20">
-          <div className="w-px h-12 bg-white origin-top animate-[scaleY_2s_ease-in-out_infinite]"
-            style={{ animation: "scrollPulse 2s ease-in-out infinite" }} />
+        {/* ── 01: SHOWREEL SECTION (Interactive 4K Video) ── */}
+        <div className="bg-[#FFFFFF]">
+          <ShowreelSection />
         </div>
-      </section>
 
-      {/* ─── TICKER ───────────────────────────────────────────── */}
-      <div className="border-y border-white/[0.05] py-4 overflow-hidden">
-        <div className="marquee-inner whitespace-nowrap">
-          {[...TICKER, ...TICKER, ...TICKER, ...TICKER].map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-5 px-6 text-[11px] font-mono uppercase tracking-[0.3em] text-white/18">
-              <span>{item}</span>
-              <span className="w-1 h-1 rounded-full bg-blue-500/50" />
+        {/* ── 02: SELECTED WORKS (huyml.co Style Hover Preview) ── */}
+        <div className="bg-[#FFFFFF]">
+          <SelectedWorks />
+        </div>
+
+        {/* ── 03: DISCIPLINES / CAPABILITIES ── */}
+        <section id="disciplines" className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+          <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-2">
+            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">[ 03 — DISCIPLINES ]</span>
+            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-wider">
+              Rekayasa Perangkat Lunak & Desain Produk
             </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── VIDEO REEL ───────────────────────────────────────── */}
-      <section id="reel" className="reel-wrapper" style={{ height: "70vh" }}>
-        {/* Replace src with your actual video file at public/reel.mp4 */}
-        <video
-          id="reel-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          className="w-full h-full object-cover opacity-70"
-          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230a0a14'/%3E%3Cstop offset='1' stop-color='%23060d1a'/%3E%3C/linearGradient%3E%3Crect width='1920' height='1080' fill='url(%23g)'/%3E%3C/svg%3E"
-        >
-          {/* Drop your reel.mp4 into /public and uncomment: */}
-          {/* <source src="/reel.mp4" type="video/mp4" /> */}
-        </video>
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-
-        {/* Reel label */}
-        <div className="absolute bottom-6 left-8 right-8 flex items-end justify-between">
-          <div data-reveal>
-            <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/30 mb-1">
-              2024 — 2026
-            </p>
-            <p className="text-xs font-mono uppercase tracking-[0.25em] text-white/50">
-              Selected Works Reel
-            </p>
           </div>
-          <button
-            id="sound-btn"
-            className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/30 hover:text-white/70 transition-colors border border-white/10 hover:border-white/30 px-3 py-1.5 rounded-full"
-            data-hover
-          >
-            SOUND OFF
-          </button>
-        </div>
 
-        {/* Center play visual (shown when no video loaded) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-sm bg-white/5">
-            <svg viewBox="0 0 12 12" className="w-4 h-4 fill-white/40 ml-0.5">
-              <polygon points="2,1 11,6 2,11" />
-            </svg>
+          <div className="dim-group divide-y divide-[#101C2C]/10 border-b border-[#101C2C]/10">
+            {disciplines.map((item) => (
+              <div
+                key={item.num}
+                className="dim-item py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 group cursor-default"
+              >
+                <div className="flex items-baseline gap-6 sm:gap-12 md:w-1/2">
+                  <span className="text-xs sm:text-sm font-mono text-[#526D9B] group-hover:text-[#101C2C] transition-colors font-bold">
+                    {item.num}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#101C2C] tracking-tight group-hover:translate-x-2 transition-transform duration-200">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm font-mono text-[#526D9B] md:w-1/2 md:text-right font-medium">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ─── STATS ────────────────────────────────────────────── */}
-      <section className="grid grid-cols-2 md:grid-cols-4">
-        {[
-          { n: "100+",  l: "Klien Aktif" },
-          { n: "250+",  l: "Proyek Selesai" },
-          { n: "99.8%", l: "Uptime SLA" },
-          { n: "5 ★",   l: "Rata-rata Rating" },
-        ].map((s, i) => (
-          <div key={i} className="stat-card p-10 md:p-12" data-reveal data-delay={String(i + 1)}>
-            <div className="text-5xl md:text-6xl font-black text-white tabular-nums leading-none">
-              {s.n}
+        {/* ── 04: GIANT EDITORIAL CTA ── */}
+        <section id="contact" className="py-28 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+          <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">[ 04 — CONTACT ]</span>
+
+          <div className="mt-8">
+            <h2 className="text-2xl sm:text-3xl font-light text-[#526D9B]">
+              Punya ide proyek atau sistem yang ingin diakselerasi?
+            </h2>
+
+            {/* Giant Clickable Email */}
+            <div className="mt-6 flex flex-col md:flex-row md:items-baseline gap-6">
+              <a
+                href={`mailto:${email}`}
+                className="text-[clamp(2.5rem,7.5vw,7.5rem)] font-black text-[#101C2C] hover:text-[#526D9B] tracking-[-0.03em] leading-none transition-colors"
+              >
+                {email}
+              </a>
+
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] hover:bg-[#101C2C] hover:text-[#FFFFFF] text-xs font-mono uppercase tracking-wider text-[#101C2C] transition-all self-start md:self-center shadow-sm"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? "Tersalin!" : "Salin Email"}</span>
+              </button>
             </div>
-            <div className="mt-3 text-[10px] font-mono uppercase tracking-[0.3em] text-white/25">
-              {s.l}
-            </div>
-            <div className="stat-underline mt-6" />
-          </div>
-        ))}
-      </section>
 
-      {/* ─── SERVICES ─────────────────────────────────────────── */}
-      <section id="services" className="px-8 py-24">
+            <div className="mt-12 flex flex-wrap items-center gap-4 text-xs font-mono">
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C2C] hover:bg-[#526D9B] text-[#FFFFFF] font-medium transition-all shadow-md active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Konsultasi Cepat via WhatsApp</span>
+                <ArrowUpRight className="w-4 h-4 opacity-70" />
+              </a>
 
-        {/* Section label */}
-        <div className="flex items-center gap-4 mb-12" data-reveal>
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/20">
-            Kapabilitas
-          </span>
-          <div className="h-px flex-1 bg-white/[0.05]" />
-        </div>
-
-        <div data-reveal data-delay="2">
-          {SERVICES.map((s) => (
-            <div key={s.n} className="service-row group flex items-center gap-6 md:gap-10 py-6 px-2 cursor-pointer" data-hover>
-              <span className="row-num text-[11px] font-mono text-white/15 w-7 shrink-0 tabular-nums transition-colors duration-300">
-                {s.n}
-              </span>
-              <span className="flex-1 text-xl md:text-3xl font-bold text-white/60 group-hover:text-white transition-colors duration-400">
-                {s.title}
-              </span>
-              <span className="hidden md:block text-[11px] font-mono tracking-widest text-white/18 text-right group-hover:text-white/40 transition-colors duration-300 shrink-0">
-                {s.tech}
-              </span>
-              <span className="row-arrow text-white/15 group-hover:text-blue-400 shrink-0 text-lg">
-                ↗
+              <span className="px-3 py-2 text-[#526D9B] font-medium">
+                Respon dalam 1×24 jam kerja
               </span>
             </div>
-          ))}
+          </div>
+        </section>
+      </main>
+
+      {/* ── FOOTER ── */}
+      <footer className="border-t border-[#101C2C]/10 px-6 sm:px-12 py-10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          © 2026 KADAEK STUDIO • ALL RIGHTS RESERVED
         </div>
-      </section>
-
-      {/* ─── CLOSING CTA ──────────────────────────────────────── */}
-      <section className="border-t border-white/[0.05] px-8 py-28 md:py-40 flex flex-col items-start">
-        <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/20 mb-10" data-reveal>
-          Siap Berkolaborasi
-        </p>
-
-        <a
-          href="mailto:halo@kadaek.id"
-          className="cta-big text-[clamp(2.5rem,7vw,7.5rem)] font-black leading-[0.9] tracking-[-0.03em] text-white hover:text-blue-400 transition-colors duration-500 break-all md:break-normal"
-          data-split
-        >
-          {splitWords("halo@kadaek.id")}
-        </a>
-
-        <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6" data-reveal data-delay="2">
-          <a
-            href="https://wa.me/6281234567890"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 border border-white/15 hover:border-white/40 px-6 py-3 text-[11px] font-mono uppercase tracking-[0.25em] text-white/40 hover:text-white transition-all duration-300"
-          >
-            WhatsApp
-            <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform inline-block">↗</span>
-          </a>
-          <span className="text-[10px] font-mono text-white/15">
-            Respons dalam 1 × 24 jam kerja
-          </span>
+        <div className="flex items-center gap-6 text-[#101C2C] font-semibold">
+          <span>JAKARTA & BANDUNG, ID</span>
+          <span>EST. 2024</span>
         </div>
-      </section>
-
-      {/* ─── FOOTER ───────────────────────────────────────────── */}
-      <footer className="border-t border-white/[0.04] px-8 py-7 flex flex-col md:flex-row items-center justify-between gap-3">
-        <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/15">
-          © 2026 Kadaek Studio
-        </span>
-        <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/15">
-          Bandung ID
-        </span>
       </footer>
-
-      <style>{`
-        @keyframes scrollPulse {
-          0%, 100% { transform: scaleY(0); transform-origin: top; }
-          50% { transform: scaleY(1); transform-origin: top; }
-        }
-      `}</style>
-    </>
+    </div>
   );
 }

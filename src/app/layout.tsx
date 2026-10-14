@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${geist.variable}`}>
-      <body>
-        {/* Animated film grain */}
-        <div className="grain" aria-hidden="true" />
-        {/* Cursor elements */}
-        <div id="cursor-dot" aria-hidden="true" />
-        <div id="cursor-ring" aria-hidden="true" />
+    <html lang="id" className={geist.variable} style={{ backgroundColor: "#FFFFFF" }}>
+      <body
+        className="bg-[#FFFFFF] text-[#101C2C] selection:bg-[#526D9B] selection:text-white"
+        style={{ backgroundColor: "#FFFFFF", color: "#101C2C" }}
+      >
+        <div id="cur-dot" aria-hidden="true" />
+        <div id="cur-ring" aria-hidden="true" />
         {children}
       </body>
     </html>
