@@ -1,47 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 
 export const metadata: Metadata = {
-  title: "Kadaek | Solusi Transformasi Digital & Teknologi Modern",
-  description:
-    "Kadaek menghadirkan solusi teknologi terkini, pengembangan perangkat lunak, dan transformasi digital yang andal untuk memajukan bisnis Anda.",
-  keywords: [
-    "Kadaek",
-    "Company Profile",
-    "software development",
-    "digital transformation",
-    "web development",
-    "mobile apps",
-  ],
-  icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
-  },
+  title: "Kadaek — Studio Teknologi & Rekayasa Digital",
+  description: "Studio rekayasa perangkat lunak. Kami membangun produk digital yang presisi.",
+  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/icon.svg" },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
-    >
-      <body className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <html lang="id" className={`${geist.variable}`}>
+      <body>
+        {/* Animated film grain */}
+        <div className="grain" aria-hidden="true" />
+        {/* Cursor elements */}
+        <div id="cursor-dot" aria-hidden="true" />
+        <div id="cursor-ring" aria-hidden="true" />
         {children}
       </body>
     </html>
