@@ -40,14 +40,19 @@ export default function ShowreelSection() {
   };
 
   return (
-    <section id="showreel" className="w-full py-20 px-6 sm:px-12 max-w-7xl mx-auto">
-      <div className="flex flex-col sm:flex-row items-baseline justify-between mb-6 pb-4 border-b border-[#101C2C]/10 gap-2">
+    <section id="showreel" className="w-full py-28 px-6 sm:px-12 max-w-7xl mx-auto">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row items-baseline justify-between mb-8 pb-4 border-b border-[#101C2C]/10 gap-3">
         <div className="flex items-center gap-3">
-          <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest">[ 01 — SHOWREEL ]</span>
-          <span className="text-sm font-semibold tracking-tight text-[#101C2C]">Kadaek Studio Reel &apos;26</span>
+          <span className="text-xs font-mono text-[#526D9B] uppercase tracking-[0.2em] font-semibold">
+            [ 01 — SHOWREEL ]
+          </span>
+          <span className="text-sm font-heading font-bold tracking-tight text-[#101C2C]">
+            Kadaek Engineering Reel &apos;26
+          </span>
         </div>
         <div className="text-xs font-mono text-[#526D9B] uppercase tracking-wider">
-          Runtime: 01:24 • 4K Digital Motion
+          Runtime: 01:24 • Digital Architecture
         </div>
       </div>
 
@@ -63,7 +68,7 @@ export default function ShowreelSection() {
           muted={isMuted}
           className="w-full h-full object-cover cursor-pointer"
           onClick={togglePlay}
-          poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80"
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-with-changing-numbers-41551-large.mp4"
@@ -71,14 +76,14 @@ export default function ShowreelSection() {
           />
         </video>
 
-        {/* Ambient Overlay Vignette */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#101C2C]/80 via-transparent to-[#101C2C]/20 opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+        {/* Ambient Dark Navy Vignette */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#101C2C]/80 via-transparent to-[#101C2C]/30 opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
 
         {/* Big Center Play Button (when paused) */}
         {!isPlaying && (
           <button
             onClick={togglePlay}
-            className="absolute inset-0 m-auto w-20 h-20 rounded-full bg-white/90 backdrop-blur-md text-[#101C2C] flex items-center justify-center hover:scale-110 hover:bg-[#526D9B] hover:text-white transition-all duration-300 shadow-2xl z-10"
+            className="absolute inset-0 m-auto w-20 h-20 rounded-full bg-white/95 text-[#101C2C] flex items-center justify-center hover:scale-105 hover:bg-[#101C2C] hover:text-white transition-all duration-300 shadow-2xl z-10"
             aria-label="Play Showreel"
           >
             <Play className="w-8 h-8 fill-current translate-x-0.5" />
@@ -86,7 +91,7 @@ export default function ShowreelSection() {
         )}
 
         {/* Bottom Control Bar */}
-        <div className="absolute bottom-0 inset-x-0 p-6 flex flex-col gap-3 bg-gradient-to-t from-[#101C2C]/95 to-transparent z-10 opacity-90 group-hover:opacity-100 transition-opacity">
+        <div className="absolute bottom-0 inset-x-0 p-6 flex flex-col gap-3 bg-gradient-to-t from-[#101C2C]/95 via-[#101C2C]/60 to-transparent z-10 opacity-90 group-hover:opacity-100 transition-opacity">
           {/* Scrubber Progress Bar */}
           <div
             className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer relative"
@@ -107,15 +112,15 @@ export default function ShowreelSection() {
             <div className="flex items-center gap-5">
               <button
                 onClick={togglePlay}
-                className="hover:text-[#526D9B] transition-colors flex items-center gap-1.5"
+                className="hover:text-[#526D9B] transition-colors flex items-center gap-1.5 font-semibold"
               >
                 {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
-                <span className="font-semibold">{isPlaying ? "PAUSE" : "PLAY"}</span>
+                <span>{isPlaying ? "PAUSE" : "PLAY"}</span>
               </button>
 
               <button
                 onClick={toggleMute}
-                className="hover:text-[#526D9B] transition-colors flex items-center gap-1.5"
+                className="hover:text-[#526D9B] transition-colors flex items-center gap-1.5 font-medium"
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 <span>{isMuted ? "MUTED" : "AUDIO"}</span>
@@ -124,7 +129,7 @@ export default function ShowreelSection() {
 
             <div className="flex items-center gap-4">
               <span className="hidden sm:inline text-white/50 uppercase tracking-widest text-[10px]">
-                Interactive Video Experience
+                Interactive Video Showcase
               </span>
               <button
                 onClick={handleFullscreen}
