@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
 import ShowreelSection from "@/components/ShowreelSection";
 import SelectedWorks from "@/components/SelectedWorks";
-import { ArrowUpRight, Copy, Check, MessageSquare } from "lucide-react";
+import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
+import { ArrowUpRight, Copy, Check, MessageSquare, ShieldCheck, Zap, Cpu, Server } from "lucide-react";
 
 export default function Home() {
   const [time, setTime] = useState("");
@@ -12,7 +13,7 @@ export default function Home() {
   const email = "halo@kadaek.id";
 
   useEffect(() => {
-    // ── Custom Cursor Logic ────────────────────────
+    // ── Custom Cursor ────────────────────────
     const dot = document.getElementById("cur-dot");
     const ring = document.getElementById("cur-ring");
 
@@ -34,11 +35,15 @@ export default function Home() {
       if (ring) {
         ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
       }
-      raf = requestAnimationFrame(lerp);
+      raf = requestAnimationFrame(loop);
     };
-    lerp();
+
+    const loop = () => {
+      lerp();
+    };
 
     window.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(loop);
 
     const onEnter = () => document.body.classList.add("cur-hover");
     const onLeave = () => document.body.classList.remove("cur-hover");
@@ -77,85 +82,144 @@ export default function Home() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const disciplines = [
-    { num: "01", title: "Enterprise Web Applications", desc: "Next.js, Node.js, TypeScript, PostgreSQL, High-Scale APIs" },
-    { num: "02", title: "Native & Cross-Platform Mobile", desc: "Flutter, React Native, Swift, Performance Optimization" },
-    { num: "03", title: "Cloud Architecture & DevOps", desc: "AWS, GCP, Kubernetes, CI/CD Pipeline, Security Compliance" },
-    { num: "04", title: "Design Systems & Digital Direction", desc: "Interaction Design, 3D Asset Integration, Design Tokens" },
-    { num: "05", title: "AI & Distributed Data Pipelines", desc: "Autonomous Agent Systems, LLM Workflows, Realtime Data" },
+  const pillars = [
+    {
+      icon: Server,
+      title: "SCALING INFRASTRUCTURE",
+      desc: "Perancangan arsitektur komputasi terdistribusi, zero-downtime clustering, dan cloud orchestration (AWS, GCP, Kubernetes) berstandar global.",
+    },
+    {
+      icon: Cpu,
+      title: "ENGINEERED ARCHITECTURE",
+      desc: "Pengembangan sistem core backend dengan Next.js, Go, Node.js, dan PostgreSQL berkecepatan tinggi dengan latensi sub-millisecond.",
+    },
+    {
+      icon: Zap,
+      title: "INNOVATING THE FUTURE",
+      desc: "Implementasi otomasi cerdas, agen otonom (LLM/AI), pipeline analitik real-time, dan produk digital transformatif generasi berikutnya.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "ENTERPRISE SECURITY",
+      desc: "Enkripsi tingkat bank, mitigasi risiko siber, kepatuhan data ketat, dan continuous security verification untuk integritas sistem tanpa cela.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#101C2C] selection:bg-[#526D9B] selection:text-white flex flex-col justify-between">
-      {/* ── TOP NAV ── */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FFFFFF]/95 border-b border-[#101C2C]/10 px-6 sm:px-12 py-5">
+      {/* ── TOP NAV (Matches Brand Interface Mockup) ── */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FFFFFF]/95 border-b border-[#101C2C]/10 px-6 sm:px-12 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Official Brand Identity */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-[#101C2C] text-[#FFFFFF] flex items-center justify-center font-black text-sm tracking-tighter group-hover:bg-[#526D9B] transition-colors">
-              K
-            </div>
-            <span className="text-lg font-black tracking-widest uppercase text-[#101C2C] group-hover:text-[#526D9B] transition-colors">
-              Kadaek<span className="text-[#526D9B]">.</span>
-            </span>
+            <KadaekBrand />
           </a>
 
-          {/* Center Info / Audio Toggle */}
-          <div className="flex items-center gap-6">
-            <div className="hidden lg:flex items-center gap-2 text-xs font-mono text-[#526D9B] tracking-wider font-medium">
+          {/* Center Navigation Links (from mockup: HOME, PLATFORM, SOLUTIONS, COMPANY, CONTACT) */}
+          <nav className="hidden lg:flex items-center gap-8 dim-group">
+            <a href="#hero" className="dim-item text-xs font-mono tracking-[0.2em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+              HOME
+            </a>
+            <a href="#showreel" className="dim-item text-xs font-mono tracking-[0.2em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+              PLATFORM
+            </a>
+            <a href="#pillars" className="dim-item text-xs font-mono tracking-[0.2em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+              SOLUTIONS
+            </a>
+            <a href="#works" className="dim-item text-xs font-mono tracking-[0.2em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+              WORKS
+            </a>
+            <a href="#contact" className="dim-item text-xs font-mono tracking-[0.2em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+              CONTACT
+            </a>
+          </nav>
+
+          {/* Right Controls: Audio + Live Clock + CTA */}
+          <div className="flex items-center gap-4">
+            <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#526D9B] tracking-wider font-medium">
               <span className="w-2 h-2 rounded-full bg-[#526D9B] animate-pulse" />
-              <span>WIB {time || "23:25:00"} • JAKARTA</span>
+              <span>WIB {time || "23:30:00"}</span>
             </div>
 
             <AudioPlayer />
-          </div>
 
-          {/* Action Button */}
-          <div className="flex items-center gap-4">
             <a
               href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all active:scale-95 shadow-sm"
             >
-              <span>Mulai Diskusi</span>
+              <span>REQUEST DEMO</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
       </header>
 
-      {/* ── MAIN CONTENT ── */}
+      {/* ── MAIN HERO SECTION (Faithful to Brand Guidelines) ── */}
       <main className="flex-1 bg-[#FFFFFF]">
-        {/* ── HERO SECTION ── */}
-        <section className="pt-24 pb-20 px-6 sm:px-12 max-w-7xl mx-auto bg-[#FFFFFF]">
-          {/* Overline pill */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] tracking-widest uppercase mb-10 font-medium">
-            <span className="w-2 h-2 rounded-full bg-[#101C2C]" />
-            <span>Independent Software Studio & Digital Architecture</span>
-          </div>
+        <section id="hero" className="relative pt-20 pb-28 px-6 sm:px-12 max-w-7xl mx-auto brand-watermark border-b border-[#101C2C]/10">
+          <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] tracking-[0.25em] uppercase mb-8 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#101C2C]" />
+              <span>TECHNOLOGY COMPANY • SCALING INFRASTRUCTURE</span>
+            </div>
 
-          {/* Giant Editorial Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold text-[#101C2C] tracking-tight leading-[1.05] max-w-5xl">
-            Membangun Sistem Digital Berkelas Dunia dengan{" "}
-            <span className="text-[#526D9B]">Presisi & Dampak Nyata.</span>
-          </h1>
-
-          {/* Manifesto & Quick Stats Row */}
-          <div className="mt-16 pt-8 border-t border-[#101C2C]/10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <p className="md:col-span-7 text-lg sm:text-xl font-normal text-[#526D9B] leading-relaxed">
-              Kadaek merancang, merekayasa, dan mempercepat produk teknologi bagi startup visioner dan perusahaan terkemuka. Menggabungkan arsitektur software tangguh dengan pengalaman visual level dunia.
+            {/* Giant Brand Wordmark (from brand guideline banner) */}
+            <h1 className="text-6xl sm:text-8xl md:text-9xl font-black text-[#101C2C] tracking-[0.08em] uppercase leading-none select-none">
+              KADAEK
+            </h1>
+            <p className="text-sm sm:text-lg font-mono text-[#526D9B] tracking-[0.38em] uppercase mt-3 font-semibold">
+              TECHNOLOGY COMPANY
             </p>
 
-            <div className="md:col-span-5 flex flex-col sm:flex-row gap-4 md:justify-end text-xs font-mono">
-              <div className="p-5 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]">
-                <div className="text-[#526D9B] uppercase tracking-widest text-[11px] font-medium">Kapasitas Kemitraan</div>
-                <div className="text-[#101C2C] font-bold mt-1 text-sm">● Q1 & Q2 2026 Aktif</div>
-              </div>
+            {/* Sub-headline directly from brand sheet: "ENGINEERED PRECISION" */}
+            <div className="mt-14 max-w-3xl">
+              <h2 className="text-3xl sm:text-5xl font-black text-[#101C2C] tracking-tight uppercase leading-[1.1]">
+                ENGINEERED PRECISION. <br />
+                <span className="text-[#526D9B]">INNOVATING THE FUTURE.</span>
+              </h2>
 
-              <div className="p-5 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]">
-                <div className="text-[#526D9B] uppercase tracking-widest text-[11px] font-medium">Waktu Rilis Rata-rata</div>
-                <div className="text-[#101C2C] font-bold mt-1 text-sm">3–6 Minggu Sprint</div>
+              <p className="mt-6 text-base sm:text-xl font-normal text-[#526D9B] leading-relaxed">
+                Kami merancang dan membangun ekosistem perangkat lunak generasi berikutnya. Menggabungkan arsitektur infrastruktur berdaya tahan tinggi, rekayasa presisi, dan pengalaman digital berkelas dunia.
+              </p>
+            </div>
+
+            {/* Call to Action Buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="#showreel"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#526D9B] transition-all shadow-md active:scale-95"
+              >
+                <span>EXPLORE PLATFORM</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>START A PROJECT</span>
+              </a>
+            </div>
+
+            {/* Status Indicator */}
+            <div className="mt-14 pt-8 border-t border-[#101C2C]/10 w-full flex flex-wrap items-center justify-center gap-8 text-xs font-mono text-[#526D9B]">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#101C2C]" />
+                <span>Q1/Q2 PARTNERSHIP: ACTIVE</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#526D9B]" />
+                <span>ENTERPRISE GRADE SLA</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                <span>GLOBAL ENGINEERING STANDARDS</span>
               </div>
             </div>
           </div>
@@ -166,57 +230,54 @@ export default function Home() {
           <div className="ticker-track text-xs font-mono uppercase tracking-[0.3em] text-[#101C2C] font-semibold">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="flex items-center gap-8 shrink-0 px-4">
-                <span>Enterprise Architecture</span>
+                <span>ENGINEERED PRECISION</span>
                 <span className="text-[#526D9B]">•</span>
-                <span>Next.js & Cloud Core</span>
+                <span>SCALING INFRASTRUCTURE</span>
                 <span className="text-[#526D9B]">•</span>
-                <span>Awwwards Grade Motion</span>
+                <span>INNOVATING THE FUTURE</span>
                 <span className="text-[#526D9B]">•</span>
-                <span>Zero Latency Optimization</span>
+                <span>DISTRIBUTED ARCHITECTURE</span>
                 <span className="text-[#526D9B]">•</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── 01: SHOWREEL SECTION (Interactive 4K Video) ── */}
-        <div className="bg-[#FFFFFF]">
-          <ShowreelSection />
-        </div>
+        {/* ── 01: SHOWREEL SECTION (Interactive 4K Digital Motion) ── */}
+        <ShowreelSection />
 
         {/* ── 02: SELECTED WORKS (huyml.co Style Hover Preview) ── */}
-        <div className="bg-[#FFFFFF]">
-          <SelectedWorks />
-        </div>
+        <SelectedWorks />
 
-        {/* ── 03: DISCIPLINES / CAPABILITIES ── */}
-        <section id="disciplines" className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+        {/* ── 03: PILLARS / SCALING INFRASTRUCTURE (From Brand Guidelines) ── */}
+        <section id="pillars" className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
           <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-2">
-            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">[ 03 — DISCIPLINES ]</span>
+            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">[ 03 — CAPABILITIES ]</span>
             <span className="text-xs font-mono text-[#526D9B] uppercase tracking-wider">
-              Rekayasa Perangkat Lunak & Desain Produk
+              SCALING INFRASTRUCTURE & ARCHITECTURE
             </span>
           </div>
 
-          <div className="dim-group divide-y divide-[#101C2C]/10 border-b border-[#101C2C]/10">
-            {disciplines.map((item) => (
-              <div
-                key={item.num}
-                className="dim-item py-8 flex flex-col md:flex-row md:items-baseline justify-between gap-4 group cursor-default"
-              >
-                <div className="flex items-baseline gap-6 sm:gap-12 md:w-1/2">
-                  <span className="text-xs sm:text-sm font-mono text-[#526D9B] group-hover:text-[#101C2C] transition-colors font-bold">
-                    {item.num}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#101C2C] tracking-tight group-hover:translate-x-2 transition-transform duration-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {pillars.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-8 sm:p-10 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]/60 hover:bg-[#E9EDF2] hover:border-[#101C2C]/25 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#101C2C] text-[#FFFFFF] flex items-center justify-center mb-6 group-hover:bg-[#526D9B] transition-colors">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-[#101C2C] tracking-tight uppercase mb-3">
                     {item.title}
                   </h3>
+                  <p className="text-sm font-normal text-[#526D9B] leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm font-mono text-[#526D9B] md:w-1/2 md:text-right font-medium">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -226,7 +287,7 @@ export default function Home() {
 
           <div className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-light text-[#526D9B]">
-              Punya ide proyek atau sistem yang ingin diakselerasi?
+              Ready to engineer your next digital platform?
             </h2>
 
             {/* Giant Clickable Email */}
@@ -243,7 +304,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] hover:bg-[#101C2C] hover:text-[#FFFFFF] text-xs font-mono uppercase tracking-wider text-[#101C2C] transition-all self-start md:self-center shadow-sm"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "Tersalin!" : "Salin Email"}</span>
+                <span>{copied ? "COPIED" : "COPY EMAIL"}</span>
               </button>
             </div>
 
@@ -252,29 +313,34 @@ export default function Home() {
                 href="https://wa.me/6281234567890"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C2C] hover:bg-[#526D9B] text-[#FFFFFF] font-medium transition-all shadow-md active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#101C2C] hover:bg-[#526D9B] text-[#FFFFFF] font-medium transition-all shadow-md active:scale-95"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Konsultasi Cepat via WhatsApp</span>
+                <span>Direct WhatsApp Consultation</span>
                 <ArrowUpRight className="w-4 h-4 opacity-70" />
               </a>
 
               <span className="px-3 py-2 text-[#526D9B] font-medium">
-                Respon dalam 1×24 jam kerja
+                SLA Response Time: &lt; 24h
               </span>
             </div>
           </div>
         </section>
       </main>
 
-      {/* ── FOOTER ── */}
-      <footer className="border-t border-[#101C2C]/10 px-6 sm:px-12 py-10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          © 2026 KADAEK STUDIO • ALL RIGHTS RESERVED
+      {/* ── FOOTER (with Monogram) ── */}
+      <footer className="border-t border-[#101C2C]/10 px-6 sm:px-12 py-10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-3">
+          <KadaekMonogram className="w-6 h-6 text-[#101C2C]" />
+          <span className="text-[#101C2C] font-black tracking-widest uppercase">
+            KADAEK TECHNOLOGY COMPANY
+          </span>
         </div>
-        <div className="flex items-center gap-6 text-[#101C2C] font-semibold">
-          <span>JAKARTA & BANDUNG, ID</span>
-          <span>EST. 2024</span>
+
+        <div className="flex items-center gap-6 text-[#526D9B]">
+          <span>ENGINEERED PRECISION</span>
+          <span>•</span>
+          <span>© 2026 ALL RIGHTS RESERVED</span>
         </div>
       </footer>
     </div>

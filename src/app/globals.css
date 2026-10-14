@@ -11,15 +11,19 @@
   --bg-secondary: #E9EDF2;
   --primary-navy: #101C2C;
   --accent-blue: #526D9B;
-  --line: rgba(16, 28, 44, 0.12);
-  --line-subtle: rgba(16, 28, 44, 0.06);
+  --line: rgba(16, 28, 44, 0.1);
+  --line-subtle: rgba(16, 28, 44, 0.05);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
 }
 
 html, body {
   background-color: #FFFFFF !important;
   color: #101C2C !important;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -51,7 +55,7 @@ html, body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid rgba(16, 28, 44, 0.28);
+  border: 1.5px solid rgba(16, 28, 44, 0.3);
   transition: width 0.3s var(--ease), height 0.3s var(--ease), border-color 0.25s ease, opacity 0.3s ease;
 }
 
@@ -62,8 +66,8 @@ body.cur-hover #cur-dot {
 }
 
 body.cur-hover #cur-ring {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-color: #526D9B;
 }
 
@@ -123,4 +127,11 @@ body.cur-hover #cur-ring {
 
 .ticker-track:hover {
   animation-play-state: paused;
+}
+
+/* ── Architectural Monogram Grid Watermark ── */
+.brand-watermark {
+  background-image: linear-gradient(to right, rgba(16, 28, 44, 0.035) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(16, 28, 44, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
