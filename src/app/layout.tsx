@@ -6,12 +6,14 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["500", "600", "700", "800"],
+  display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,14 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="id"
       className={`${manrope.variable} ${inter.variable}`}
-      style={{ backgroundColor: "#FFFFFF" }}
     >
-      <body
-        className="bg-[#FFFFFF] text-[#101C2C] selection:bg-[#526D9B] selection:text-white font-sans antialiased"
-        style={{ backgroundColor: "#FFFFFF", color: "#101C2C" }}
-      >
-        <div id="cur-dot" aria-hidden="true" />
-        <div id="cur-ring" aria-hidden="true" />
+      <body className="bg-[#FFFFFF] text-[#101C2C] font-sans antialiased">
         {children}
       </body>
     </html>
