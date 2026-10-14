@@ -42,7 +42,6 @@ export default function About() {
             <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
               Berbekal tim insinyur perangkat lunak, perancang UI/UX, dan konsultan strategi digital yang berpengalaman, kami memadukan kreativitas dengan keahlian teknis untuk menghasilkan produk yang estetis, cepat, dan bernilai tinggi.
             </p>
-
             <div className="pt-2 grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
                 <h4 className="text-lg font-bold text-white">Visi</h4>

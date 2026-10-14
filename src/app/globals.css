@@ -1,19 +1,8 @@
 @import "tailwindcss";
+@source "../**/*.{js,ts,jsx,tsx}";
 
 *, *::before, *::after {
   box-sizing: border-box;
-}
-
-:root {
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #E9EDF2;
-  --primary-navy: #101C2C;
-  --accent-blue: #526D9B;
-}
-
-@theme inline {
-  --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
 }
 
 html {
