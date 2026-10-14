@@ -34,11 +34,11 @@ export function KadaekBrand({
     <div className="flex items-center gap-3">
       <KadaekMonogram className={`${monogramSize} text-[#101C2C] shrink-0`} />
       <div className="flex flex-col">
-        <span className="text-xl font-black tracking-[0.16em] uppercase text-[#101C2C] leading-none">
+        <span className="font-heading text-xl font-extrabold tracking-[0.16em] uppercase text-[#101C2C] leading-none">
           KADAEK
         </span>
         {showSubtitle && (
-          <span className="text-[8.5px] font-mono tracking-[0.32em] uppercase text-[#526D9B] mt-1 font-semibold">
+          <span className="font-sans text-[8.5px] tracking-[0.32em] uppercase text-[#526D9B] mt-1 font-semibold">
             TECHNOLOGY COMPANY
           </span>
         )}
