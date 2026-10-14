@@ -13,17 +13,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "kadaek | Solusi Transformasi Digital & Teknologi Modern",
+  title: "Kadaek | Solusi Transformasi Digital & Teknologi Modern",
   description:
-    "kadaek menghadirkan solusi teknologi terkini, pengembangan perangkat lunak, dan transformasi digital yang andal untuk memajukan bisnis Anda.",
+    "Kadaek menghadirkan solusi teknologi terkini, pengembangan perangkat lunak, dan transformasi digital yang andal untuk memajukan bisnis Anda.",
   keywords: [
-    "kadaek",
+    "Kadaek",
     "company profile",
     "software development",
     "digital transformation",
     "web development",
     "mobile apps",
   ],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
