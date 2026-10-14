@@ -91,58 +91,58 @@ export default function Home() {
       icon: Cpu,
       title: "ENTERPRISE ARCHITECTURE",
       desc: "Pengembangan core system backend dengan Next.js, Node.js, Go, dan PostgreSQL dengan performa tinggi dan throughput masif.",
-      tags: ["Next.js App Engine", "Go Microservices", "PostgreSQL Core"],
+      tags: ["Next.js Engine", "Go Microservices", "PostgreSQL Core"],
     },
     {
       num: "03",
       icon: Zap,
       title: "INNOVATING THE FUTURE",
       desc: "Implementasi sistem otomatisasi cerdas, pipeline data real-time, integrasi AI, serta produk digital generasi berikutnya.",
-      tags: ["AI Agent Integration", "Realtime Telemetry", "Event Streams"],
+      tags: ["AI Integration", "Realtime Telemetry", "Event Streams"],
     },
     {
       num: "04",
       icon: ShieldCheck,
       title: "HIGH-GRADE RELIABILITY",
       desc: "Audit keamanan sistem, mitigasi risiko siber, continuous verification, dan kepatuhan standar industri untuk integritas tanpa celah.",
-      tags: ["Security Hardening", "Zero-Trust", "99.9% SLA Guarantees"],
+      tags: ["Security Hardening", "Zero-Trust", "99.9% SLA"],
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#101C2C] selection:bg-[#526D9B] selection:text-white flex flex-col justify-between">
-      {/* ── TOP NAV (itsasidejob & huyml inspired) ── */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FFFFFF]/90 border-b border-[#101C2C]/10 px-6 sm:px-12 py-5">
+      {/* ── TOP NAV ── */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FFFFFF]/95 border-b border-[#101C2C]/10 px-6 sm:px-10 lg:px-16 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Brand Logo with Monogram Mark */}
           <a href="#" className="flex items-center gap-3 group">
             <KadaekBrand />
           </a>
 
-          {/* Center Navigation Links (Clean, Spaced, Subtle) */}
+          {/* Navigation Links */}
           <nav className="hidden lg:flex items-center gap-8 dim-group">
-            <a href="#about" className="dim-item font-sans text-xs tracking-[0.18em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+            <a href="#about" className="dim-item font-sans text-xs tracking-[0.16em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
               ABOUT
             </a>
-            <a href="#showreel" className="dim-item font-sans text-xs tracking-[0.18em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+            <a href="#showreel" className="dim-item font-sans text-xs tracking-[0.16em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
               SHOWREEL
             </a>
-            <a href="#works" className="dim-item font-sans text-xs tracking-[0.18em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+            <a href="#works" className="dim-item font-sans text-xs tracking-[0.16em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
               WORKS
             </a>
-            <a href="#capabilities" className="dim-item font-sans text-xs tracking-[0.18em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+            <a href="#capabilities" className="dim-item font-sans text-xs tracking-[0.16em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
               CAPABILITIES
             </a>
-            <a href="#contact" className="dim-item font-sans text-xs tracking-[0.18em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
+            <a href="#contact" className="dim-item font-sans text-xs tracking-[0.16em] uppercase text-[#101C2C] font-semibold hover:text-[#526D9B] transition-colors">
               CONTACT
             </a>
           </nav>
 
-          {/* Right Controls: Audio + Live Clock + CTA */}
+          {/* Right Controls */}
           <div className="flex items-center gap-4">
             <div className="hidden xl:flex items-center gap-2 text-xs font-mono text-[#526D9B] tracking-wider font-medium">
               <span className="w-2 h-2 rounded-full bg-[#526D9B] animate-pulse" />
-              <span>WIB {time || "23:40:00"} • JKT</span>
+              <span>WIB {time || "23:45:00"}</span>
             </div>
 
             <AudioPlayer />
@@ -162,50 +162,56 @@ export default function Home() {
 
       {/* ── MAIN CONTENT ── */}
       <main className="flex-1 bg-[#FFFFFF]">
-        {/* ── HERO SECTION: PURE EDITORIAL CLARITY ── */}
-        <section id="about" className="pt-24 sm:pt-32 pb-24 sm:pb-32 px-6 sm:px-12 max-w-7xl mx-auto bg-[#FFFFFF]">
-          {/* Subtle Category Pill */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] tracking-[0.2em] uppercase mb-12 font-medium">
+        {/* ── HERO SECTION: TASTEFUL, BALANCED, SPACIOUS ── */}
+        <section id="about" className="pt-20 sm:pt-28 pb-20 sm:pb-28 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
+          {/* Subtle Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] tracking-[0.2em] uppercase mb-8 font-medium">
             <span className="w-2 h-2 rounded-full bg-[#101C2C]" />
-            <span>STUDIO EDITION &apos;26 • ENGINEERED PRECISION</span>
+            <span>KADAEK TECHNOLOGY COMPANY • EDITION &apos;26</span>
           </div>
 
-          {/* Main Editorial Statement (Sidejob / Huyml style) */}
-          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-extrabold text-[#101C2C] tracking-tight leading-[1.06] max-w-5xl">
+          {/* Primary Editorial Headline: Sized comfortably (not 83px shouting) */}
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.12] max-w-4xl">
             Membangun sistem teknologi & produk digital modern dengan{" "}
             <span className="text-[#526D9B]">presisi rekayasa.</span>
           </h1>
 
-          {/* Lower Manifesto & Action Row */}
-          <div className="mt-16 pt-10 border-t border-[#101C2C]/10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 space-y-4">
-              <p className="font-sans text-lg sm:text-xl font-normal text-[#526D9B] leading-relaxed max-w-2xl">
-                Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder, enterprise, dan brand visioner untuk mewujudkan infrastruktur teknologi berkecepatan tinggi, arsitektur tangguh, dan pengalaman pengguna kelas dunia.
-              </p>
-            </div>
+          {/* Subtitle & Value Proposition */}
+          <div className="mt-10 max-w-3xl">
+            <p className="font-sans text-base sm:text-lg lg:text-xl font-normal text-[#526D9B] leading-relaxed">
+              Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder, enterprise, dan brand visioner untuk mewujudkan infrastruktur teknologi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
+            </p>
+          </div>
 
-            <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-4 lg:items-end justify-between text-xs font-mono">
-              <div className="p-5 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2] w-full sm:w-auto lg:w-72">
-                <div className="text-[#526D9B] uppercase tracking-widest text-[11px] font-medium">Kapasitas Kemitraan</div>
-                <div className="text-[#101C2C] font-heading font-bold mt-1 text-sm">● Q1 & Q2 2026 Aktif</div>
-              </div>
+          {/* Action Row & Capacity Badge */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#showreel"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] font-sans text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+            >
+              <span>EXPLORE PLATFORM</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
 
-              <div className="flex items-center gap-3">
-                <a
-                  href="#showreel"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] font-sans text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                >
-                  <span>LIHAT SHOWREEL</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] font-sans text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>START A PROJECT</span>
+            </a>
+
+            <div className="px-4 py-2.5 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B]">
+              <span className="font-semibold text-[#101C2C]">● Q1/Q2 PARTNERSHIP:</span> OPEN
             </div>
           </div>
         </section>
 
-        {/* ── TICKER MARQUEE ── */}
-        <div className="border-y border-[#101C2C]/10 py-4 bg-[#E9EDF2] overflow-hidden">
-          <div className="ticker-track text-xs font-mono uppercase tracking-[0.28em] text-[#101C2C] font-semibold">
+        {/* ── TICKER MARQUEE (Properly spaced) ── */}
+        <div className="border-y border-[#101C2C]/10 py-3.5 bg-[#E9EDF2] overflow-hidden my-6">
+          <div className="ticker-track text-xs font-mono uppercase tracking-[0.25em] text-[#101C2C] font-semibold">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="flex items-center gap-8 shrink-0 px-4">
                 <span>ENGINEERED PRECISION</span>
@@ -222,14 +228,18 @@ export default function Home() {
         </div>
 
         {/* ── 01: SHOWREEL SECTION ── */}
-        <ShowreelSection />
+        <div className="my-8">
+          <ShowreelSection />
+        </div>
 
         {/* ── 02: SELECTED WORKS ── */}
-        <SelectedWorks />
+        <div className="my-8">
+          <SelectedWorks />
+        </div>
 
         {/* ── 03: CAPABILITIES & INFRASTRUCTURE ── */}
-        <section id="capabilities" className="py-28 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
-          <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-3">
+        <section id="capabilities" className="py-24 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+          <div className="flex flex-col sm:flex-row items-baseline justify-between mb-12 pb-4 border-b border-[#101C2C]/10 gap-3">
             <span className="text-xs font-mono text-[#526D9B] uppercase tracking-[0.2em] font-semibold">
               [ 03 — CAPABILITIES ]
             </span>
@@ -238,7 +248,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {capabilities.map((cap) => {
               const Icon = cap.icon;
               return (
@@ -248,15 +258,15 @@ export default function Home() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-[#101C2C] text-[#FFFFFF] flex items-center justify-center">
-                        <Icon className="w-6 h-6" />
+                      <div className="w-11 h-11 rounded-xl bg-[#101C2C] text-[#FFFFFF] flex items-center justify-center">
+                        <Icon className="w-5 h-5" />
                       </div>
                       <span className="font-mono text-xs text-[#526D9B] font-semibold">
                         /{cap.num}
                       </span>
                     </div>
 
-                    <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-[#101C2C] tracking-tight uppercase mb-3">
+                    <h3 className="font-heading text-lg sm:text-xl font-extrabold text-[#101C2C] tracking-tight uppercase mb-2">
                       {cap.title}
                     </h3>
                     <p className="font-sans text-sm font-normal text-[#526D9B] leading-relaxed">
@@ -264,11 +274,11 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-8 mt-4 border-t border-[#101C2C]/10">
+                  <div className="flex flex-wrap gap-2 pt-6 mt-4 border-t border-[#101C2C]/10">
                     {cap.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-mono px-3 py-1 rounded-md bg-[#FFFFFF] border border-[#101C2C]/10 text-[#101C2C]"
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#FFFFFF] border border-[#101C2C]/10 text-[#101C2C]"
                       >
                         {tag}
                       </span>
@@ -281,35 +291,35 @@ export default function Home() {
         </section>
 
         {/* ── 04: GIANT EDITORIAL CTA ── */}
-        <section id="contact" className="py-28 sm:py-36 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+        <section id="contact" className="py-24 sm:py-32 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto border-t border-[#101C2C]/10 bg-[#FFFFFF]">
           <span className="text-xs font-mono text-[#526D9B] uppercase tracking-[0.2em] font-semibold">
             [ 04 — GET IN TOUCH ]
           </span>
 
           <div className="mt-8">
-            <h2 className="font-sans text-2xl sm:text-3xl font-light text-[#526D9B]">
+            <h2 className="font-sans text-xl sm:text-2xl font-light text-[#526D9B]">
               Have a digital project or system to scale?
             </h2>
 
-            {/* Giant Clickable Email */}
-            <div className="mt-6 flex flex-col md:flex-row md:items-baseline gap-6">
+            {/* Sized comfortably email */}
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-6 flex-wrap">
               <a
                 href={`mailto:${email}`}
-                className="font-heading text-[clamp(2.5rem,7.5vw,7.5rem)] font-black text-[#101C2C] hover:text-[#526D9B] tracking-[-0.03em] leading-none transition-colors"
+                className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-[#101C2C] hover:text-[#526D9B] tracking-tight leading-none transition-colors"
               >
                 {email}
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] hover:bg-[#101C2C] hover:text-[#FFFFFF] text-xs font-mono uppercase tracking-wider text-[#101C2C] transition-all self-start md:self-center shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] hover:bg-[#101C2C] hover:text-[#FFFFFF] text-xs font-mono uppercase tracking-wider text-[#101C2C] transition-all self-start sm:self-center shadow-sm"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? "COPIED" : "COPY EMAIL"}</span>
               </button>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-4 text-xs font-mono">
+            <div className="mt-10 flex flex-wrap items-center gap-4 text-xs font-mono">
               <a
                 href="https://wa.me/6281234567890"
                 target="_blank"
@@ -330,10 +340,10 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-[#101C2C]/10 px-6 sm:px-12 py-10 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] flex flex-col sm:flex-row items-center justify-between gap-6">
+      <footer className="border-t border-[#101C2C]/10 px-6 sm:px-10 lg:px-16 py-8 bg-[#E9EDF2] text-xs font-mono text-[#526D9B] flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <KadaekMonogram className="w-6 h-6 text-[#101C2C]" />
-          <span className="text-[#101C2C] font-heading font-black tracking-widest uppercase text-sm">
+          <KadaekMonogram className="w-5 h-5 text-[#101C2C]" />
+          <span className="text-[#101C2C] font-heading font-black tracking-wider uppercase text-xs">
             KADAEK TECHNOLOGY COMPANY
           </span>
         </div>
