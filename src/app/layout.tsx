@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Kadaek menghadirkan solusi teknologi terkini, pengembangan perangkat lunak, dan transformasi digital yang andal untuk memajukan bisnis Anda.",
   keywords: [
     "Kadaek",
-    "company profile",
+    "Company Profile",
     "software development",
     "digital transformation",
     "web development",
