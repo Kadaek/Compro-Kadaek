@@ -47,7 +47,8 @@ body {
   border-radius: 50%;
   background: #fff;
   mix-blend-mode: exclusion;
-  transition: width 0.2s var(--ease-expo), height 0.2s var(--ease-expo);
+  opacity: 0;
+  transition: width 0.2s var(--ease-expo), height 0.2s var(--ease-expo), opacity 0.3s ease;
 }
 
 #cursor-ring {
@@ -56,7 +57,8 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.18);
   mix-blend-mode: exclusion;
-  transition: width 0.35s var(--ease-expo), height 0.35s var(--ease-expo), border-color 0.3s ease;
+  opacity: 0;
+  transition: width 0.35s var(--ease-expo), height 0.35s var(--ease-expo), border-color 0.3s ease, opacity 0.3s ease;
 }
 
 body.cursor-hover #cursor-dot {

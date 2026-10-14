@@ -15,8 +15,12 @@ const TICKER = [
 ];
 
 function splitWords(text: string) {
-  return text.split(" ").map((word, i) => (
-    <span key={i} className="split-word mr-[0.25em]">
+  return text.split(" ").map((word, i, arr) => (
+    <span
+      key={i}
+      className="split-word"
+      style={{ marginRight: i < arr.length - 1 ? "0.22em" : 0 }}
+    >
       <span style={{ transitionDelay: `${i * 0.08}s` }}>{word}</span>
     </span>
   ));

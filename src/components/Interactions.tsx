@@ -8,10 +8,16 @@ export default function Interactions() {
     const ring = document.getElementById("cursor-ring");
     if (!dot || !ring) return;
 
-    let mx = -200, my = -200, rx = -200, ry = -200, raf = 0;
+    // Start both off-screen until first mouse move
+    dot.style.opacity  = "0";
+    ring.style.opacity = "0";
+
+    let mx = -500, my = -500, rx = -500, ry = -500, raf = 0;
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX; my = e.clientY;
+      dot.style.opacity  = "1";
+      ring.style.opacity = "1";
       dot.style.transform = `translate(${mx - 3}px,${my - 3}px)`;
     };
     const lerp = () => {
