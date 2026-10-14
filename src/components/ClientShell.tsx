@@ -1,8 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
 
-const AuroraCanvas = dynamic(() => import("@/components/AuroraCanvas"),   { ssr: false });
-const Interactions = dynamic(() => import("@/components/Interactions"),   { ssr: false });
+import AuroraCanvas from "@/components/AuroraCanvas";
+import Interactions from "@/components/Interactions";
 
 export default function ClientShell() {
   return (

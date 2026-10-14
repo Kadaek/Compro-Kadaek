@@ -66,7 +66,7 @@ export default function Home() {
             className="text-[11px] font-mono uppercase tracking-[0.4em] text-white/25 mb-7"
             data-reveal data-delay="1"
           >
-            Studio Teknologi — Jakarta, Indonesia
+            Studio Teknologi — Bandung, Indonesia
           </p>
 
           {/* Headline - split word animated */}
@@ -262,7 +262,7 @@ export default function Home() {
           © 2026 Kadaek Studio
         </span>
         <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/15">
-          Jakarta · Bandung · Indonesia
+          Bandung ID
         </span>
       </footer>
 

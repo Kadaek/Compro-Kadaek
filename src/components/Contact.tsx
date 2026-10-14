@@ -81,7 +81,7 @@ export default function Contact() {
                   <div>
                     <div className="text-xs text-slate-400 font-medium">Lokasi Kantor</div>
                     <p className="text-sm font-semibold text-white">
-                      Jakarta & Bandung, Indonesia
+                     Bandung ID
                     </p>
                   </div>
                 </div>
