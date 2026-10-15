@@ -157,11 +157,11 @@ export default function Home() {
             {/* Center Stage Group (Headline + Floating Showcase aligned with tight, balanced rhythm) */}
             <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-4 gap-3 sm:gap-5 md:gap-7">
               
-              {/* Headline / Slogan: Perfectly Balanced 2 Lines, Zero Orphan Words */}
+              {/* Headline / Slogan: 1 Warna Solid (#101C2C), 2 Baris Simetris */}
               <div className="animate-creative-reveal text-center max-w-3xl sm:max-w-4xl mx-auto px-2">
                 <h1 className="font-heading text-xl sm:text-4xl md:text-[2.65rem] lg:text-[2.95rem] font-black text-[#101C2C] tracking-tight leading-[1.14] [text-wrap:balance]">
                   <span>Membangun sistem teknologi & produk digital modern</span>{" "}
-                  <span className="block text-[#101C2C]/65 font-bold mt-0.5 sm:mt-1">
+                  <span className="block mt-0.5 sm:mt-1">
                     dengan presisi rekayasa.
                   </span>
                 </h1>
