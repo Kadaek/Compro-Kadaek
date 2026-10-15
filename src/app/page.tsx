@@ -162,7 +162,7 @@ export default function Home() {
 
       {/* ── 2. HERO SECTION (SPLIT: WHITE TEXT ON LEFT, PURE VIDEO ON RIGHT HALF) ── */}
       <main className="flex-1">
-        <section id="about" className="relative min-h-[82vh] flex items-center overflow-hidden bg-[#FFFFFF] border-b border-[#101C2C]/8">
+        <section id="about" className="relative min-h-[82vh] flex items-center overflow-hidden bg-[#FFFFFF]">
           {/* Right-Half Pure Video Background (No white bg over video, half-screen) */}
           <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 overflow-hidden pointer-events-none select-none">
             <video
@@ -226,7 +226,7 @@ export default function Home() {
         </section>
 
         {/* ── 3. DISCIPLINES (ARCHITECTURAL WITH STAGGERED SCROLL REVEAL) ── */}
-        <section id="disciplines" className="py-24 px-6 border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+        <section id="disciplines" className="py-24 px-6 bg-[#FFFFFF]">
           <div className="max-w-6xl mx-auto">
             <ScrollReveal direction="up">
               <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-2">
