@@ -1,180 +1,127 @@
 "use client";
 
-import { Activity, Cpu, ShieldCheck, Smartphone, Zap } from "lucide-react";
-import { KadaekMonogram } from "@/components/KadaekLogo";
+import { Search, Terminal, Activity, CheckCircle2, ArrowUpRight } from "lucide-react";
 
 export default function HeroFloatingShowcase() {
   return (
-    <div className="relative w-full max-w-[420px] sm:max-w-[540px] md:max-w-[620px] mx-auto select-none">
-      
-      {/* ── UNIFIED HIGH-CONTRAST ARCHITECTURAL PLATFORM CONSOLE (ZERO OVERLAPPING CARDS) ── */}
-      <div className="relative w-full rounded-2xl border border-white/15 bg-[#090E17] shadow-[0_24px_50px_-12px_rgba(16,28,44,0.28)] overflow-hidden text-white backdrop-blur-xl animate-float">
+    <div className="relative w-full max-w-full sm:max-w-5xl mx-auto select-none px-2 sm:px-4 pt-0 pb-2 overflow-hidden sm:overflow-visible">
+      {/* ── DYNAMIC REALISTIC SOFTWARE TOOLS (ZERO TYPOS, GAK KAKU, GAK KEPOTONG, PURE VECTOR) ── */}
+      <div className="relative flex items-center justify-center min-h-[200px] xs:min-h-[240px] sm:min-h-[300px] md:min-h-[340px] w-full max-w-full">
         
-        {/* Top Window Header */}
-        <div className="px-3.5 sm:px-5 py-2 sm:py-2.5 border-b border-white/10 bg-[#0E1523] flex items-center justify-between gap-2">
-          {/* Traffic Dots + OS Brand */}
-          <div className="flex items-center gap-2.5">
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444] inline-block opacity-90" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block opacity-90" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block opacity-90" />
+        {/* 1. LEFT WINDOW: DARK MODE CODE & BACKEND ENGINE (TILT -4 DEG) */}
+        <div className="absolute left-0 sm:left-4 md:left-8 bottom-2 sm:bottom-4 z-10 w-[240px] xs:w-[280px] sm:w-[320px] md:w-[360px] rounded-2xl bg-[#0B111A] border border-slate-800/80 shadow-[0_20px_50px_rgba(11,17,26,0.25)] p-3.5 sm:p-4 text-left transform -rotate-3 hover:rotate-0 transition-all duration-500 hidden sm:block">
+          {/* Window Header */}
+          <div className="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-800">
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+              <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
             </div>
-            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-white">
-              KADAEK OS
-            </span>
+            <span className="text-[11px] font-mono text-slate-400">gateway.ts</span>
+            <div className="w-3" />
           </div>
 
-          {/* High-Contrast Endpoint Path */}
-          <div className="text-[9px] sm:text-[11px] font-mono text-[#CBD5E1] font-medium truncate">
-            api.kadaek.id/cluster-telemetry
-          </div>
-
-          {/* Live Status */}
-          <div className="text-[9px] sm:text-[11px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5 shrink-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>99.99% SLA</span>
+          {/* Real, Accurate, Typo-Free Code */}
+          <div className="font-mono text-[11px] sm:text-xs leading-relaxed space-y-1 text-slate-300">
+            <p>
+              <span className="text-purple-400">import</span> &#123; createGateway &#125; <span className="text-purple-400">from</span> <span className="text-emerald-400">&quot;@kadaek/core&quot;</span>;
+            </p>
+            <p className="pt-1">
+              <span className="text-blue-400">const</span> app = <span className="text-amber-300">createGateway</span>(&#123;
+            </p>
+            <p className="pl-4 text-slate-400">
+              rateLimit: <span className="text-emerald-400">&quot;10k/sec&quot;</span>,
+            </p>
+            <p className="pl-4 text-slate-400">
+              zeroDowntime: <span className="text-orange-400">true</span>,
+            </p>
+            <p>&#125;);</p>
+            <p className="pt-1.5 flex items-center gap-1.5 text-[10px] text-emerald-400 border-t border-slate-800/60 mt-2">
+              <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+              <span>Proxy listening on port 8080 · 0.8ms</span>
+            </p>
           </div>
         </div>
 
-        {/* Console Body */}
-        <div className="p-3.5 sm:p-5 space-y-3 sm:space-y-3.5">
+        {/* 2. CENTER WINDOW: HERO PRODUCT DASHBOARD (ELEVATED, CLEAN, Z-20) */}
+        <div className="relative z-20 w-full max-w-[340px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[540px] rounded-2xl bg-[#FFFFFF] border border-[#101C2C]/10 shadow-[0_25px_60px_rgba(16,28,44,0.12)] p-4 sm:p-5 text-left transform hover:-translate-y-1.5 transition-all duration-500">
           
-          {/* 3 High-Contrast Non-Overlapping KPI Metric Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-            
-            {/* KPI 1: Kadaek Pay Settlement */}
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/[0.05] border border-white/10 flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[8px] sm:text-[9.5px] font-mono text-[#94A3B8] mb-1">
-                <span className="flex items-center gap-1 text-white font-medium">
-                  <Smartphone className="w-3 h-3 text-emerald-400 shrink-0" />
-                  Kadaek Pay
-                </span>
-                <span className="text-emerald-400 font-medium">60 FPS</span>
-              </div>
-              <div className="text-xs sm:text-base font-heading font-black text-white tracking-tight mt-0.5">
-                Rp 148,2 Miliar
-              </div>
-              <div className="text-[8px] sm:text-[9px] font-mono text-[#94A3B8] mt-1 truncate">
-                Settlement Core · 0s Lag
-              </div>
-            </div>
-
-            {/* KPI 2: Cluster Throughput */}
-            <div className="p-2.5 sm:p-3 rounded-xl bg-white/[0.05] border border-white/10 flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[8px] sm:text-[9.5px] font-mono text-[#94A3B8] mb-1">
-                <span className="flex items-center gap-1 text-white font-medium">
-                  <Activity className="w-3 h-3 text-sky-400 shrink-0" />
-                  Throughput
-                </span>
-                <span className="text-sky-400 font-medium">Cluster SG-01</span>
-              </div>
-              <div className="text-xs sm:text-base font-heading font-black text-sky-400 tracking-tight mt-0.5">
-                48.200 req/s
-              </div>
-              <div className="text-[8px] sm:text-[9px] font-mono text-[#94A3B8] mt-1 truncate">
-                128 Nodes Ingest
-              </div>
-            </div>
-
-            {/* KPI 3: P99 Latency Core (Hidden on smallest screens, visible on sm+) */}
-            <div className="hidden sm:flex p-2.5 sm:p-3 rounded-xl bg-white/[0.05] border border-white/10 flex-col justify-between">
-              <div className="flex items-center justify-between text-[8px] sm:text-[9.5px] font-mono text-[#94A3B8] mb-1">
-                <span className="flex items-center gap-1 text-white font-medium">
-                  <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
-                  Latency P99
-                </span>
-                <span className="text-emerald-400 font-medium">TLS 1.3</span>
-              </div>
-              <div className="text-xs sm:text-base font-heading font-black text-emerald-400 tracking-tight mt-0.5">
-                1.8 ms
-              </div>
-              <div className="text-[8px] sm:text-[9px] font-mono text-[#94A3B8] mt-1 truncate">
-                Zero-Trust Hardware
-              </div>
-            </div>
-
-          </div>
-
-          {/* Real-Time Distributed Telemetry Waveform */}
-          <div className="relative rounded-xl bg-black/50 border border-white/10 p-2.5 sm:p-3.5 overflow-hidden">
-            <div className="flex items-center justify-between text-[8px] sm:text-[9.5px] font-mono text-[#94A3B8] mb-1.5">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-                <span className="text-white font-semibold uppercase tracking-wider">
-                  REAL-TIME DISTRIBUTED TRAFFIC
-                </span>
-              </div>
-              <span className="text-emerald-400 font-medium">P99: 1.8ms · STABLE</span>
-            </div>
-
-            {/* High-Contrast Smooth SVG Area Chart */}
-            <div className="h-12 sm:h-16 w-full relative">
-              <svg viewBox="0 0 500 80" preserveAspectRatio="none" className="w-full h-full overflow-visible">
-                <defs>
-                  <linearGradient id="streamGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.0" />
-                  </linearGradient>
-                  <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#38BDF8" />
-                    <stop offset="50%" stopColor="#818CF8" />
-                    <stop offset="100%" stopColor="#34D399" />
-                  </linearGradient>
-                </defs>
-
-                {/* Subtle Gridlines */}
-                <line x1="0" y1="20" x2="500" y2="20" stroke="#FFFFFF" strokeOpacity="0.08" strokeDasharray="3 3" />
-                <line x1="0" y1="45" x2="500" y2="45" stroke="#FFFFFF" strokeOpacity="0.08" strokeDasharray="3 3" />
-                <line x1="0" y1="70" x2="500" y2="70" stroke="#FFFFFF" strokeOpacity="0.08" strokeDasharray="3 3" />
-
-                {/* Gradient Fill */}
-                <path
-                  d="M0,60 Q60,25 120,45 T240,30 T360,15 T500,25 L500,80 L0,80 Z"
-                  fill="url(#streamGrad)"
-                />
-
-                {/* Line Curve */}
-                <path
-                  d="M0,60 Q60,25 120,45 T240,30 T360,15 T500,25"
-                  fill="none"
-                  stroke="url(#lineGrad)"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-
-                {/* Pulse Peak Indicator */}
-                <circle cx="360" cy="15" r="3.5" fill="#38BDF8" />
-                <circle cx="360" cy="15" r="7" fill="#38BDF8" opacity="0.4" className="animate-ping" />
-              </svg>
-            </div>
-
-            {/* Timestamps */}
-            <div className="flex items-center justify-between text-[7.5px] sm:text-[8.5px] font-mono text-[#94A3B8] mt-1 pt-1 border-t border-white/5">
-              <span>00:00:00</span>
-              <span>06:00:00</span>
-              <span>12:00:00</span>
-              <span>18:00:00</span>
-              <span className="text-emerald-400 font-semibold">LIVE NOW</span>
-            </div>
-          </div>
-
-          {/* Engine Status Bar */}
-          <div className="flex items-center justify-between text-[8px] sm:text-[9.5px] font-mono text-[#94A3B8] px-0.5">
+          {/* App Topbar */}
+          <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#101C2C]/8">
             <div className="flex items-center gap-2">
-              <span className="text-white font-medium">KERNEL: V2.4 MESH</span>
-              <span>·</span>
-              <span className="text-emerald-400">128/128 NODES OPERATIONAL</span>
+              <div className="w-7 h-7 rounded-lg bg-[#101C2C] text-white flex items-center justify-center">
+                <Terminal className="w-3.5 h-3.5" />
+              </div>
+              <div>
+                <h4 className="font-heading text-xs sm:text-sm font-bold text-[#101C2C]">
+                  Kadaek Hub
+                </h4>
+                <div className="text-[10px] font-mono text-emerald-600 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Live Platform
+                </div>
+              </div>
             </div>
-            <div className="hidden xs:flex items-center gap-1 text-white/80">
-              <Zap className="w-2.5 h-2.5 text-amber-400" />
-              <span>ZERO DOWNTIME CORE</span>
+
+            {/* Clean Mini Search */}
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#101C2C]/8 text-[11px] font-mono text-[#526D9B]">
+              <Search className="w-3 h-3 text-[#526D9B]" />
+              <span className="hidden xs:inline">Cari 48+ tools...</span>
             </div>
           </div>
 
+          {/* Quick Metrics Bar */}
+          <div className="grid grid-cols-3 gap-2 py-3 border-b border-[#101C2C]/6">
+            <div className="p-2 rounded-lg bg-[#F8FAFC]">
+              <div className="text-[10px] font-mono text-[#526D9B]">Tools Aktif</div>
+              <div className="text-sm font-heading font-bold text-[#101C2C]">48 Project</div>
+            </div>
+            <div className="p-2 rounded-lg bg-[#F8FAFC]">
+              <div className="text-[10px] font-mono text-[#526D9B]">Developer</div>
+              <div className="text-sm font-heading font-bold text-[#101C2C]">1,400+</div>
+            </div>
+            <div className="p-2 rounded-lg bg-[#F8FAFC]">
+              <div className="text-[10px] font-mono text-[#526D9B]">Akses</div>
+              <div className="text-sm font-heading font-bold text-emerald-600">Free 100%</div>
+            </div>
+          </div>
+
+          {/* Real Curated Tool Preview Row */}
+          <div className="pt-3 flex items-center justify-between text-xs font-mono">
+            <div>
+              <div className="font-bold text-[#101C2C]">SchemaPulse v2.1</div>
+              <div className="text-[10px] text-[#526D9B]">Database visualizer oleh @techfajar</div>
+            </div>
+            <div className="flex items-center gap-1 text-emerald-600 font-semibold">
+              <span>Tersedia</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </div>
+          </div>
+        </div>
+
+        {/* 3. RIGHT WINDOW: REAL API ENGINE & STATUS (TILT +4 DEG) */}
+        <div className="absolute right-0 sm:right-4 md:right-8 bottom-2 sm:bottom-4 z-10 w-[240px] xs:w-[270px] sm:w-[300px] md:w-[340px] rounded-2xl bg-[#FFFFFF] border border-[#101C2C]/10 shadow-[0_20px_50px_rgba(16,28,44,0.1)] p-3.5 sm:p-4 text-left transform rotate-3 hover:rotate-0 transition-all duration-500 hidden md:block">
+          {/* Header */}
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#101C2C]/8">
+            <div className="flex items-center gap-1.5">
+              <Activity className="w-3.5 h-3.5 text-[#101C2C]" />
+              <span className="text-[11px] font-mono font-semibold text-[#101C2C]">API Explorer</span>
+            </div>
+            <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">200 OK</span>
+          </div>
+
+          {/* Real JSON Payload (100% Typo-Free) */}
+          <div className="font-mono text-[10px] sm:text-[11px] leading-relaxed bg-[#F8FAFC] p-2.5 rounded-lg border border-[#101C2C]/5 text-slate-700">
+            <p><span className="text-slate-400">&#123;</span></p>
+            <p className="pl-3">&quot;tool&quot;: <span className="text-emerald-600">&quot;DevSync CLI&quot;</span>,</p>
+            <p className="pl-3">&quot;author&quot;: <span className="text-blue-600">&quot;@dimasbuilds&quot;</span>,</p>
+            <p className="pl-3">&quot;latency&quot;: <span className="text-purple-600">&quot;1.2ms&quot;</span>,</p>
+            <p className="pl-3">&quot;verified&quot;: <span className="text-emerald-600">true</span></p>
+            <p><span className="text-slate-400">&#125;</span></p>
+          </div>
         </div>
 
       </div>
-
     </div>
   );
 }
