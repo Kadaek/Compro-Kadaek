@@ -1,107 +1,76 @@
-import {
-  Globe,
-  Smartphone,
-  Cloud,
-  LayoutDashboard,
-  ShieldAlert,
-  Database,
-  ArrowUpRight,
-} from "lucide-react";
+"use client";
+
+import ScrollReveal from "@/components/ScrollReveal";
+
+export const CATEGORIES_DATA = [
+  {
+    num: "01",
+    title: "TOOLS DEVELOPER & CLI",
+    desc: "Kumpulan script otomatisasi, command-line tool, dan utilitas terminal yang bikin alur ngoding kamu jadi jauh lebih cepat dan praktis.",
+    stack: "CLI Tools · Script Otomatisasi · Terminal Apps",
+  },
+  {
+    num: "02",
+    title: "BACKEND & DATABASE",
+    desc: "Engine API siap pakai, visualizer skema database, dan utilitas microservice yang mempermudah urusan server.",
+    stack: "API Ready · Database Visualizer · Microservices",
+  },
+  {
+    num: "03",
+    title: "AI & OTOMASI CERDAS",
+    desc: "Runner model AI lokal, asisten koding cerdas, dan tools pengolah data otomatis untuk memangkas waktu kerja manual.",
+    stack: "Local AI · Otomasi Kerja · Prompt Tools",
+  },
+  {
+    num: "04",
+    title: "KOMPONEN & DESAIN WEB",
+    desc: "Koleksi komponen siap pakai React & Tailwind, template landing page, dan inspirasi antarmuka modern yang tinggal copy-paste.",
+    stack: "React UI · Tailwind Kits · Web Template",
+  },
+];
 
 export default function Services() {
-  const services = [
-    {
-      icon: Globe,
-      title: "Web & Enterprise Applications",
-      description:
-        "Pengembangan web aplikasi modern, portal bisnis, ERP/CRM kustom dengan teknologi terkini seperti Next.js, React, dan Node.js.",
-      badge: "Fullstack",
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile App Development",
-      description:
-        "Aplikasi iOS dan Android yang responsif, intuitif, dan berperforma tinggi menggunakan Flutter & React Native.",
-      badge: "Cross-Platform",
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Infrastructure & DevOps",
-      description:
-        "Arsitektur cloud terkelola (AWS, GCP, Azure), otomatisasi CI/CD, kontainerisasi Docker/Kubernetes, serta optimasi biaya infrastruktur.",
-      badge: "Scalability",
-    },
-    {
-      icon: LayoutDashboard,
-      title: "UI/UX & Product Design",
-      description:
-        "Riset pengguna, pembuatan wireframe, prototyping interaktif, dan desain antarmuka yang elegan untuk meningkatkan konversi.",
-      badge: "Design",
-    },
-    {
-      icon: ShieldAlert,
-      title: "Cyber Security & Audit",
-      description:
-        "Audit keamanan sistem, vulnerability assessment, proteksi data, dan implementasi kepatuhan privasi standar industri.",
-      badge: "Security",
-    },
-    {
-      icon: Database,
-      title: "Data Analytics & AI Integration",
-      description:
-        "Integrasi kecerdasan buatan (AI/LLM), otomatisasi workflow cerdas, data pipeline, dan visualisasi dashboard analitik interaktif.",
-      badge: "AI & Data",
-    },
-  ];
-
   return (
-    <section id="layanan" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-blue-950/70 border border-blue-800/50 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-            Layanan Kami
+    <section
+      id="categories"
+      className="snap-start snap-always relative min-h-[100dvh] flex items-center justify-center py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-[#FFFFFF]"
+    >
+      <div className="max-w-6xl mx-auto w-full">
+        <ScrollReveal direction="up">
+          <div className="flex flex-col sm:flex-row items-start sm:items-baseline justify-between mb-6 sm:mb-8 pb-3 border-b border-[#101C2C]/10 gap-1.5 sm:gap-2">
+            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">
+              [ 01 — KATEGORI TOOLS ]
+            </span>
+            <span className="text-xs font-mono text-[#526D9B] uppercase tracking-wider">
+              Temukan apa yang kamu butuhkan
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Solusi Menyeluruh untuk Kebutuhan Digital Anda
-          </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
-            Dari perencanaan arsitektur hingga deployment dan pemeliharaan, kami mendampingi setiap tahap perkembangan sistem Anda.
-          </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={index}
-                className="group relative rounded-2xl bg-slate-900/60 border border-slate-800 p-8 hover:border-blue-500/50 hover:bg-slate-900/90 transition-all duration-300 flex flex-col justify-between"
-              >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+          {CATEGORIES_DATA.map((item, idx) => (
+            <ScrollReveal key={item.num} delay={idx * 100} direction="up">
+              <div className="p-5 sm:p-6 md:p-7 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]/40 hover:bg-[#E9EDF2]/80 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
-                      {item.badge}
-                    </span>
+                  <div className="font-mono text-xs text-[#526D9B] font-semibold mb-3 sm:mb-4">
+                    /{item.num}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-heading text-lg sm:text-xl font-extrabold text-[#101C2C] tracking-tight uppercase mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    {item.description}
+
+                  <p className="text-xs sm:text-sm text-[#526D9B] font-normal leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-slate-800/60 flex items-center text-xs font-semibold text-blue-400 group-hover:text-blue-300 gap-1">
-                  <span>Pelajari lebih lanjut</span>
-                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <div className="mt-5 sm:mt-6 pt-3 sm:pt-4 border-t border-[#101C2C]/10 text-xs font-mono text-[#101C2C] font-medium">
+                  {item.stack}
                 </div>
               </div>
-            );
-          })}
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
