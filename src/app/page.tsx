@@ -117,39 +117,128 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (NO CHEESY BADGES, PURE EDITORIAL) ── */}
+      {/* ── 2. HERO SECTION WITH AMBIENT FUTURE-WORK VIDEO LOOP ── */}
       <main className="flex-1">
-        <section id="about" className="py-24 sm:py-36 px-6 max-w-6xl mx-auto">
-          {/* Headline Utama: Kokoh, Anggun, Tanpa Badge AI */}
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08] max-w-4xl">
-            Membangun sistem teknologi & produk digital modern dengan{" "}
-            <span className="text-[#526D9B]">presisi rekayasa.</span>
-          </h1>
-
-          {/* Deskripsi Manifesto */}
-          <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-2xl">
-            Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
-          </p>
-
-          {/* Tombol Aksi Bersih */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#works"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-colors shadow-sm"
+        <section id="about" className="relative min-h-[88vh] flex items-center overflow-hidden border-b border-[#101C2C]/10 bg-[#FFFFFF]">
+          {/* Ambient Video Background Layer */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover opacity-30 scale-105 filter saturate-50 contrast-125"
             >
-              <span>LIHAT PORTOFOLIO</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+              <source src="/videos/future-network.mp4" type="video/mp4" />
+            </video>
+            {/* Multi-layered Soft Editorial Vignette & Pure White Fades */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/85 to-[#FFFFFF]/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-transparent to-[#FFFFFF]/80" />
+            <div className="absolute inset-0 backdrop-blur-[1px]" />
+          </div>
 
-            <a
-              href="https://wa.me/6281234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-colors shadow-sm"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>KONSULTASI PROYEK</span>
-            </a>
+          <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 sm:py-28 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              {/* Left Column: Editorial Headline & Manifesto */}
+              <div className="lg:col-span-7">
+                <div className="inline-flex items-center gap-2 mb-6 text-xs font-mono text-[#526D9B] uppercase tracking-widest font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#101C2C]" />
+                  <span>EMPOWERING FUTURE WORK & SYSTEMS</span>
+                </div>
+
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
+                  Membangun sistem teknologi & produk digital modern dengan{" "}
+                  <span className="text-[#526D9B]">presisi rekayasa.</span>
+                </h1>
+
+                <p className="mt-8 text-base sm:text-lg text-[#526D9B] font-normal leading-relaxed max-w-xl">
+                  Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur masa depan: otomatisasi cerdas, alur kerja nir-hambatan, serta produk digital berkelas dunia.
+                </p>
+
+                {/* Tombol Aksi Bersih */}
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#works"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                  >
+                    <span>LIHAT PORTOFOLIO</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href="https://wa.me/6281234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>KONSULTASI PROYEK</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Architectural "Future Work & Automation Systems" Card */}
+              <div className="lg:col-span-5">
+                <div className="rounded-2xl border border-[#101C2C]/12 bg-[#FFFFFF]/85 backdrop-blur-md p-6 sm:p-7 shadow-lg shadow-[#101C2C]/5">
+                  <div className="flex items-center justify-between pb-4 border-b border-[#101C2C]/10 text-xs font-mono">
+                    <span className="text-[#101C2C] font-semibold uppercase tracking-wider">
+                      FUTURE WORK ARCHITECTURE
+                    </span>
+                    <span className="text-emerald-600 font-medium flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      LIVE NODES
+                    </span>
+                  </div>
+
+                  <div className="mt-5 space-y-4">
+                    <div className="p-3.5 rounded-xl bg-[#E9EDF2]/50 border border-[#101C2C]/6 hover:bg-[#E9EDF2]/80 transition-colors">
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-[11px] font-mono text-[#526D9B]">01 / AUTOMATION</span>
+                        <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">99.9% ACCURACY</span>
+                      </div>
+                      <h4 className="font-heading text-sm font-bold text-[#101C2C] mt-1">
+                        Agentic Workflow & Task Orchestration
+                      </h4>
+                      <p className="text-xs text-[#526D9B] mt-1 leading-normal">
+                        Mengotomasi alur kerja berulang korporasi dengan agen cerdas mandiri.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#E9EDF2]/50 border border-[#101C2C]/6 hover:bg-[#E9EDF2]/80 transition-colors">
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-[11px] font-mono text-[#526D9B]">02 / INDUSTRIAL IOT</span>
+                        <span className="text-[10px] font-mono text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-medium">&lt;15ms LATENCY</span>
+                      </div>
+                      <h4 className="font-heading text-sm font-bold text-[#101C2C] mt-1">
+                        Real-Time Telemetry & Fleet Operations
+                      </h4>
+                      <p className="text-xs text-[#526D9B] mt-1 leading-normal">
+                        Sinkronisasi telemetri sensor & armada logistik secara terdesentralisasi.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#E9EDF2]/50 border border-[#101C2C]/6 hover:bg-[#E9EDF2]/80 transition-colors">
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-[11px] font-mono text-[#526D9B]">03 / CORE INFRA</span>
+                        <span className="text-[10px] font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded font-medium">ZERO-DOWNTIME</span>
+                      </div>
+                      <h4 className="font-heading text-sm font-bold text-[#101C2C] mt-1">
+                        High-Throughput Financial Reconciliation
+                      </h4>
+                      <p className="text-xs text-[#526D9B] mt-1 leading-normal">
+                        Arsitektur transaksi bebas jeda untuk skalabilitas tinggi.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 pt-4 border-t border-[#101C2C]/10 flex items-center justify-between text-[11px] font-mono text-[#526D9B]">
+                    <span>DEPLOYMENT: PRODUCTION</span>
+                    <span className="text-[#101C2C] font-semibold">JAKARTA · SG · US</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
