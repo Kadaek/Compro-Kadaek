@@ -149,36 +149,36 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (100% FULL SCREEN VIEWPORT, BALANCED RHYTHM, ZERO SCROLL ON INITIAL LOAD) ── */}
+      {/* ── 2. HERO SECTION (KADAEK SIGNATURE IDENTITY: COMPACT, PUNCHY & ARCHITECTURAL) ── */}
       <main className="flex-1">
         <section id="about" className="snap-start snap-always relative min-h-[100dvh] sm:h-[100dvh] sm:max-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-16 sm:pt-20 pb-4 sm:pb-6 px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl xl:max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
             
-            {/* Center Stage Group (Headline + Floating Showcase aligned with tight, balanced rhythm) */}
-            <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-4 gap-3 sm:gap-5 md:gap-7">
+            {/* Center Stage Group (Iconic Punchy Title + Architectural Platform Showcase) */}
+            <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-3 gap-3 sm:gap-4 md:gap-5">
               
-              {/* Headline / Slogan: 1 Warna Solid (#101C2C), 2 Baris Simetris */}
+              {/* Short, Punchy Headline (Pure text, NO badges) */}
               <div className="animate-creative-reveal text-center max-w-3xl sm:max-w-4xl mx-auto px-2">
-                <h1 className="font-heading text-xl sm:text-4xl md:text-[2.65rem] lg:text-[2.95rem] font-black text-[#101C2C] tracking-tight leading-[1.14] [text-wrap:balance]">
-                  <span>Membangun sistem teknologi & produk digital modern</span>{" "}
-                  <span className="block mt-0.5 sm:mt-1">
-                    dengan presisi rekayasa.
-                  </span>
+                <h1 className="font-heading text-2xl xs:text-3xl sm:text-5xl md:text-[3.2rem] font-black text-[#101C2C] tracking-tight leading-[1.08]">
+                  Rekayasa Sistem & Platform Digital.
                 </h1>
+                <p className="mt-2 text-xs sm:text-sm md:text-[15px] text-[#526D9B] font-normal leading-relaxed max-w-xl mx-auto">
+                  Arsitektur komputasi terdistribusi, infrastruktur cloud berkinerja tinggi, dan produk digital modern berpresisi tinggi.
+                </p>
               </div>
 
-              {/* Center Stage: Floating Software Product Platform Console */}
-              <div className="animate-creative-reveal-delay-1 w-full flex items-center justify-center pt-0.5 sm:pt-1">
+              {/* Center Stage: Compact Architectural Showcase (Clean proportions, zero bulk) */}
+              <div className="animate-creative-reveal-delay-1 w-full flex items-center justify-center pt-1 sm:pt-2">
                 <HeroFloatingShowcase />
               </div>
 
             </div>
 
-            {/* Bottom High-Impact Minimal Strip (Docked at Bottom, No Scroll Needed) */}
+            {/* Bottom High-Impact Minimal Strip (Pure text & actions, NO badges) */}
             <div className="animate-creative-reveal-delay-2 pt-3 sm:pt-4 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shrink-0">
               {/* Manifesto Text */}
-              <p className="text-[11px] sm:text-xs md:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
-                Studio rekayasa independen. Kami merancang arsitektur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
+              <p className="text-xs sm:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
+                Studio rekayasa independen. Kami merancang arsitektur sistem komputasi berkecepatan tinggi dan produk digital presisi.
               </p>
 
               {/* Action Buttons */}
