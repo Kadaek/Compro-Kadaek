@@ -163,46 +163,66 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (WITH SMOOTH SCROLL REVEAL) ── */}
+      {/* ── 2. HERO SECTION (WITH AMBIENT STARTUP VIDEO BACKGROUND) ── */}
       <main className="flex-1">
-        <section id="about" className="pt-10 sm:pt-14 pb-20 sm:pb-28 px-6 max-w-6xl mx-auto bg-[#FFFFFF]">
-          {/* Main Editorial Headline */}
-          <div className="max-w-4xl">
-            <ScrollReveal direction="up" delay={0}>
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
-                Membangun sistem teknologi & produk digital modern dengan{" "}
-                <span className="text-[#526D9B]">presisi rekayasa.</span>
-              </h1>
-            </ScrollReveal>
+        <section id="about" className="relative pt-12 sm:pt-16 pb-20 sm:pb-28 px-6 overflow-hidden bg-[#FFFFFF] border-b border-[#101C2C]/8">
+          {/* Ambient Lightweight Startup Video Background */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover object-right sm:object-center opacity-40 filter saturate-90 contrast-105"
+            >
+              <source src="/videos/startup-office.mp4" type="video/mp4" />
+            </video>
 
-            <ScrollReveal direction="up" delay={150}>
-              <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-2xl">
-                Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
-              </p>
-            </ScrollReveal>
+            {/* Seamless White Gradient Fades: Crisp white on text side, visible startup motion on right side */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/85 to-[#FFFFFF]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-transparent to-[#FFFFFF]/50" />
+          </div>
 
-            {/* Action Buttons */}
-            <ScrollReveal direction="up" delay={300}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#works"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                >
-                  <span>LIHAT PORTOFOLIO</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+          <div className="relative z-10 max-w-6xl mx-auto">
+            {/* Main Editorial Headline */}
+            <div className="max-w-4xl">
+              <ScrollReveal direction="up" delay={0}>
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
+                  Membangun sistem teknologi & produk digital modern dengan{" "}
+                  <span className="text-[#526D9B]">presisi rekayasa.</span>
+                </h1>
+              </ScrollReveal>
 
-                <a
-                  href="https://wa.me/6281234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>KONSULTASI PROYEK</span>
-                </a>
-              </div>
-            </ScrollReveal>
+              <ScrollReveal direction="up" delay={150}>
+                <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-2xl">
+                  Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
+                </p>
+              </ScrollReveal>
+
+              {/* Action Buttons */}
+              <ScrollReveal direction="up" delay={300}>
+                <div className="mt-10 flex flex-wrap items-center gap-4">
+                  <a
+                    href="#works"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                  >
+                    <span>LIHAT PORTOFOLIO</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href="https://wa.me/6281234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>KONSULTASI PROYEK</span>
+                  </a>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
