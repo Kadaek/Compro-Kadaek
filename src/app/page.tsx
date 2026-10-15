@@ -184,7 +184,7 @@ export default function Home() {
             <div className="lg:hidden absolute inset-0 bg-[#FFFFFF]/85" />
           </div>
 
-          <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 sm:py-20 w-full">
+          <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 sm:pt-28 pb-14 sm:pb-20 w-full">
             <div className="max-w-xl lg:max-w-2xl">
               <ScrollReveal direction="up" delay={0}>
                 <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08]">
