@@ -153,52 +153,46 @@ export default function Home() {
       <main className="flex-1">
         <section id="about" className="snap-start snap-always relative h-[100dvh] max-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-18 pb-4 sm:pb-6 px-6">
           <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
-            {/* Top Clean Editorial Headline (No AI Badges) */}
-            <ScrollReveal direction="up" delay={0}>
-              <div className="text-center pt-1 sm:pt-2">
-                <h1 className="font-heading text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-black text-[#101C2C] tracking-tight leading-[1.06] max-w-4xl mx-auto">
-                  Membangun sistem teknologi & produk digital modern dengan presisi rekayasa.
-                </h1>
+            {/* Top Clean Editorial Headline (Appears Immediately, Smooth Creative Reveal) */}
+            <div className="animate-creative-reveal text-center pt-1 sm:pt-2">
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-black text-[#101C2C] tracking-tight leading-[1.06] max-w-4xl mx-auto">
+                Membangun sistem teknologi & produk digital modern dengan presisi rekayasa.
+              </h1>
+            </div>
+
+            {/* Center Stage: 3 Floating Software Product Cards (Appears Immediately, Melayang Organik) */}
+            <div className="animate-creative-reveal-delay-1 my-auto py-1">
+              <HeroFloatingShowcase />
+            </div>
+
+            {/* Bottom High-Impact Minimal Strip (Appears Immediately, No Scroll Needed) */}
+            <div className="animate-creative-reveal-delay-2 pt-3 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* Manifesto Text */}
+              <p className="text-xs sm:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
+                Studio rekayasa independen. Kami merancang arsitektur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
+              </p>
+
+              {/* Center Action Buttons */}
+              <div className="flex items-center gap-3 shrink-0">
+                <a
+                  href="#works"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                >
+                  <span>LIHAT PORTOFOLIO</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+
+                <a
+                  href="https://wa.me/6281234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>KONSULTASI</span>
+                </a>
               </div>
-            </ScrollReveal>
-
-            {/* Center Stage: 3-Photo Physical Creative Collage (Fits 100vh Perfectly) */}
-            <ScrollReveal direction="up" delay={120}>
-              <div className="my-auto py-1">
-                <HeroFloatingShowcase />
-              </div>
-            </ScrollReveal>
-
-            {/* Bottom High-Impact Minimal Strip */}
-            <ScrollReveal direction="up" delay={200}>
-              <div className="pt-3 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                {/* Manifesto Text */}
-                <p className="text-xs sm:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
-                  Studio rekayasa independen. Kami merancang arsitektur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
-                </p>
-
-                {/* Center Action Buttons */}
-                <div className="flex items-center gap-3 shrink-0">
-                  <a
-                    href="#works"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                  >
-                    <span>LIHAT PORTOFOLIO</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-
-                  <a
-                    href="https://wa.me/6281234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                  >
-                    <MessageSquare className="w-3.5 h-3.5" />
-                    <span>KONSULTASI</span>
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
+            </div>
           </div>
         </section>
 

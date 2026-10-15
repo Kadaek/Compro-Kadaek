@@ -63,3 +63,28 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .animate-float-slow {
   animation: float-reverse 7s ease-in-out infinite;
 }
+
+@keyframes creative-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-creative-reveal {
+  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-creative-reveal-delay-1 {
+  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.animate-creative-reveal-delay-2 {
+  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
