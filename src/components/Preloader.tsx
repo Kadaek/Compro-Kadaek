@@ -5,10 +5,22 @@ import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
 
 export default function Preloader() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [shouldRender, setShouldRender] = useState(true);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    // Crisp, fast, luxury reveal (~1.2s total)
+    // Check if intro has already been displayed in this browser session
+    const hasSeenIntro = sessionStorage.getItem("kadaek_intro_shown");
+
+    if (hasSeenIntro) {
+      // User has already visited — do NOT show preloader on refresh
+      setShouldRender(false);
+      return;
+    }
+
+    // First-time visit: show preloader once and mark session as seen
+    setShouldRender(true);
+    sessionStorage.setItem("kadaek_intro_shown", "true");
+
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 1200);
@@ -33,7 +45,7 @@ export default function Preloader() {
         isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <div className="flex flex-col items-center text-center animate-fade-in">
+      <div className="flex flex-col items-center text-center">
         {/* Official Geometric Monogram */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 mb-5 text-[#101C2C]">
           <KadaekMonogram className="w-full h-full text-[#101C2C]" />
