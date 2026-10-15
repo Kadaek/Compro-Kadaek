@@ -4,30 +4,38 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Sparkles, Terminal } from "lucide-react";
 
+interface SlideItem {
+  type: "image" | "video";
+  src: string;
+  tag: string;
+  title: string;
+  desc: string;
+}
+
 export default function HeroFloatingShowcase() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
+  const slides: SlideItem[] = [
     {
-      type: "video",
-      src: "/videos/startup-office.mp4",
-      tag: "REAL-TIME STUDIO",
-      title: "Collaborative Engineering",
-      desc: "Suasana kerja studio rekayasa perangkat lunak modern.",
+      type: "image",
+      src: "/images/startup-loft.webp",
+      tag: "STUDIO & LABS",
+      title: "Engineering Sanctuary",
+      desc: "Ruang kolaborasi & studio rekayasa sistem perangkat lunak modern.",
     },
     {
       type: "image",
-      src: "/cinematic_hero.jpg",
-      tag: "FOUNDERS & CORE DEVS",
-      title: "Engineered by Builders",
-      desc: "Dua insinyur perangkat lunak dengan dedikasi presisi tinggi.",
+      src: "/images/founders-studio.webp",
+      tag: "CORE BUILDERS",
+      title: "Engineered by Founders",
+      desc: "Dua developer independen dengan dedikasi presisi tinggi.",
     },
     {
-      type: "video",
-      src: "/videos/future-network.mp4",
-      tag: "SYSTEM ARCHITECTURE",
-      title: "Distributed Infrastructure",
-      desc: "Simulasi alur komputasi & integritas jaringan terdistribusi.",
+      type: "image",
+      src: "/images/product-showcase.webp",
+      tag: "FINTRACK & TELEMETRY CORE",
+      title: "Production-Grade Systems",
+      desc: "Arsitektur produk digital & platform finansial modern.",
     },
   ];
 
