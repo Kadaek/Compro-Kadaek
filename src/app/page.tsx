@@ -167,9 +167,9 @@ export default function Home() {
           <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-16 sm:pb-24 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
               {/* Left Column: Editorial Headline & Manifesto */}
-              <div className="lg:col-span-7">
+              <div className="lg:col-span-6">
                 <ScrollReveal direction="up" delay={0}>
-                  <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
+                  <h1 className="font-heading text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08]">
                     Membangun sistem teknologi & produk digital modern dengan{" "}
                     <span className="text-[#526D9B]">presisi rekayasa.</span>
                   </h1>
@@ -206,7 +206,7 @@ export default function Home() {
               </div>
 
               {/* Right Column: Floating Sliding Reel / Animated Video Card */}
-              <div className="lg:col-span-5">
+              <div className="lg:col-span-6">
                 <ScrollReveal direction="up" delay={200}>
                   <HeroFloatingShowcase />
                 </ScrollReveal>

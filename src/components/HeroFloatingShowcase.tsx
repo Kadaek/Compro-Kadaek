@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function HeroFloatingShowcase() {
-  // 3 authentic photos that can be clicked to swap to center
   const [centerIdx, setCenterIdx] = useState(1); // Default center: Founders Studio
 
   const photos = [
@@ -28,19 +27,17 @@ export default function HeroFloatingShowcase() {
     },
   ];
 
-  // Helper to determine left and right photo indexes
   const leftIdx = (centerIdx + 2) % 3;
   const rightIdx = (centerIdx + 1) % 3;
 
   return (
-    <div className="relative w-full max-w-lg lg:max-w-none mx-auto select-none py-8 sm:py-12 px-6 sm:px-10">
-      <div className="relative w-full max-w-[460px] mx-auto">
+    <div className="relative w-full mx-auto select-none py-6 sm:py-10 px-4 sm:px-8 lg:px-10">
+      <div className="relative w-full max-w-[500px] mx-auto">
         
-        {/* ── LEFT TILTED PHOTO (ACCENT PRINT, OUT ON TOP-LEFT) ── */}
+        {/* ── LEFT TILTED PHOTO (SATELLITE ACCENT, SANGAT RAPI DI SISI KIRI LUAR) ── */}
         <div
           onClick={() => setCenterIdx(leftIdx)}
-          title="Klik untuk tampilkan di tengah"
-          className="animate-float-slow absolute -left-4 sm:-left-9 -top-3 sm:-top-5 w-[33%] sm:w-[35%] aspect-[4/3] -rotate-6 sm:-rotate-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_16px_36px_-6px_rgba(16,28,44,0.35)] border-2 border-white bg-[#101C2C] z-20 cursor-pointer hover:scale-110 hover:-rotate-3 hover:z-30 transition-all duration-300 group"
+          className="animate-float-slow absolute -left-6 sm:-left-12 top-1/2 -translate-y-1/2 w-[38%] sm:w-[40%] aspect-[4/3] -rotate-8 sm:-rotate-10 rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(16,28,44,0.3)] border border-[#101C2C]/12 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:-rotate-4 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image
@@ -48,13 +45,13 @@ export default function HeroFloatingShowcase() {
               alt={photos[leftIdx].alt}
               fill
               className="object-cover group-hover:opacity-95 transition-opacity"
-              sizes="(max-width: 768px) 35vw, 20vw"
+              sizes="(max-width: 768px) 40vw, 25vw"
             />
           </div>
         </div>
 
-        {/* ── CENTER MAIN PHOTO (HERO, DOMINANT & LEGA) ── */}
-        <div className="relative w-full aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_24px_50px_-10px_rgba(16,28,44,0.28)] border-2 border-white/90 bg-[#101C2C] z-10 transition-all duration-500">
+        {/* ── CENTER MAIN PHOTO (BESAR, TEGAK, 100% BEBAS HAMBATAN) ── */}
+        <div className="relative w-full aspect-[16/11] rounded-3xl overflow-hidden shadow-[0_25px_55px_-12px_rgba(16,28,44,0.25)] border border-[#101C2C]/10 bg-[#101C2C] z-10 transition-all duration-500">
           <div className="relative w-full h-full">
             <Image
               src={photos[centerIdx].src}
@@ -67,11 +64,10 @@ export default function HeroFloatingShowcase() {
           </div>
         </div>
 
-        {/* ── RIGHT TILTED PHOTO (ACCENT PRINT, OUT ON BOTTOM-RIGHT) ── */}
+        {/* ── RIGHT TILTED PHOTO (SATELLITE ACCENT, RAPI DI SISI KANAN BAWAH LUAR) ── */}
         <div
           onClick={() => setCenterIdx(rightIdx)}
-          title="Klik untuk tampilkan di tengah"
-          className="animate-float absolute -right-4 sm:-right-9 -bottom-3 sm:-bottom-5 w-[34%] sm:w-[36%] aspect-[4/3] rotate-6 sm:rotate-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_18px_40px_-6px_rgba(16,28,44,0.38)] border-2 border-white bg-[#101C2C] z-20 cursor-pointer hover:scale-110 hover:rotate-3 hover:z-30 transition-all duration-300 group"
+          className="animate-float absolute -right-6 sm:-right-12 -bottom-4 sm:-bottom-6 w-[40%] sm:w-[42%] aspect-[4/3] rotate-8 sm:rotate-10 rounded-2xl overflow-hidden shadow-[0_22px_45px_-8px_rgba(16,28,44,0.32)] border border-[#101C2C]/12 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:rotate-4 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image
@@ -79,7 +75,7 @@ export default function HeroFloatingShowcase() {
               alt={photos[rightIdx].alt}
               fill
               className="object-cover group-hover:opacity-95 transition-opacity"
-              sizes="(max-width: 768px) 35vw, 20vw"
+              sizes="(max-width: 768px) 40vw, 25vw"
             />
           </div>
         </div>
