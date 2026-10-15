@@ -15,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["about", "disciplines", "works", "contact"];
-      const scrollPosition = window.scrollY + 250;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -104,8 +104,8 @@ export default function Home() {
       {/* ── CINEMATIC VISUAL PRELOADER ── */}
       <Preloader />
 
-      {/* ── 1. HEADER / NAVBAR (100% TRANSPARENT, NO BORDER, DIRECTLY FOLLOWS PAGE BG) ── */}
-      <header className="sticky top-0 z-50 bg-transparent transition-all duration-300">
+      {/* ── 1. HEADER / NAVBAR (100% TRANSPARENT, FIXED OVER SNAP SECTIONS) ── */}
+      <header className="fixed top-0 inset-x-0 z-50 bg-transparent transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
           {/* Brand Logo in Deep Navy */}
           <a href="#" className="flex items-center gap-3 group">
@@ -149,10 +149,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (EDITORIAL + FLOATING SLIDING SHOWCASE) ── */}
+      {/* ── 2. HERO SECTION (FULL SCREEN VIEWPORT 1) ── */}
       <main className="flex-1">
-        <section id="about" className="relative min-h-[82vh] flex items-center bg-[#FFFFFF] overflow-hidden">
-          <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-16 sm:pb-24 w-full">
+        <section id="about" className="snap-start snap-always relative min-h-[100dvh] flex items-center justify-center bg-[#FFFFFF] overflow-hidden pt-20 pb-12">
+          <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
               {/* Left Column: Editorial Headline & Manifesto */}
               <div className="lg:col-span-6">
@@ -203,11 +203,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 3. DISCIPLINES (ARCHITECTURAL WITH STAGGERED SCROLL REVEAL) ── */}
-        <section id="disciplines" className="py-24 px-6 bg-[#FFFFFF]">
-          <div className="max-w-6xl mx-auto">
+        {/* ── 3. DISCIPLINES (FULL SCREEN VIEWPORT 2) ── */}
+        <section id="disciplines" className="snap-start snap-always relative min-h-[100dvh] flex items-center justify-center py-20 px-6 bg-[#FFFFFF]">
+          <div className="max-w-6xl mx-auto w-full">
             <ScrollReveal direction="up">
-              <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-2">
+              <div className="flex flex-col sm:flex-row items-baseline justify-between mb-8 sm:mb-10 pb-3 border-b border-[#101C2C]/10 gap-2">
                 <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">
                   [ 01 — DISCIPLINES ]
                 </span>
@@ -217,25 +217,25 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
               {disciplines.map((item, idx) => (
-                <ScrollReveal key={item.num} delay={idx * 120} direction="up">
-                  <div className="p-8 sm:p-10 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]/40 hover:bg-[#E9EDF2]/80 hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
+                <ScrollReveal key={item.num} delay={idx * 100} direction="up">
+                  <div className="p-6 sm:p-7 rounded-2xl border border-[#101C2C]/10 bg-[#E9EDF2]/40 hover:bg-[#E9EDF2]/80 hover:-translate-y-1 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
                     <div>
-                      <div className="font-mono text-xs text-[#526D9B] font-semibold mb-6">
+                      <div className="font-mono text-xs text-[#526D9B] font-semibold mb-4">
                         /{item.num}
                       </div>
 
-                      <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-[#101C2C] tracking-tight uppercase mb-3">
+                      <h3 className="font-heading text-lg sm:text-xl font-extrabold text-[#101C2C] tracking-tight uppercase mb-2">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm sm:text-base text-[#526D9B] font-normal leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#526D9B] font-normal leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-[#101C2C]/10 text-xs font-mono text-[#101C2C] font-medium">
+                    <div className="mt-6 pt-4 border-t border-[#101C2C]/10 text-xs font-mono text-[#101C2C] font-medium">
                       {item.stack}
                     </div>
                   </div>
@@ -245,11 +245,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 4. SELECTED WORKS (WITH SMOOTH SCROLL REVEAL) ── */}
-        <section id="works" className="py-24 px-6 border-t border-[#101C2C]/10 bg-[#FFFFFF]">
-          <div className="max-w-6xl mx-auto">
+        {/* ── 4. SELECTED WORKS (FULL SCREEN VIEWPORT 3) ── */}
+        <section id="works" className="snap-start snap-always relative min-h-[100dvh] flex items-center justify-center py-20 px-6 border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+          <div className="max-w-6xl mx-auto w-full">
             <ScrollReveal direction="up">
-              <div className="flex flex-col sm:flex-row items-baseline justify-between mb-16 pb-4 border-b border-[#101C2C]/10 gap-2">
+              <div className="flex flex-col sm:flex-row items-baseline justify-between mb-8 sm:mb-10 pb-3 border-b border-[#101C2C]/10 gap-2">
                 <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">
                   [ 02 — SELECTED WORKS ]
                 </span>
@@ -261,17 +261,17 @@ export default function Home() {
 
             <div className="divide-y divide-[#101C2C]/10 border-b border-[#101C2C]/10">
               {projects.map((proj, idx) => (
-                <ScrollReveal key={proj.num} delay={idx * 90} direction="up">
-                  <div className="py-10 sm:py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:bg-[#E9EDF2]/30 px-4 rounded-xl transition-all duration-300">
+                <ScrollReveal key={proj.num} delay={idx * 80} direction="up">
+                  <div className="py-5 sm:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 group hover:bg-[#E9EDF2]/30 px-4 rounded-xl transition-all duration-300">
                     <div className="flex items-baseline gap-6 sm:gap-10">
                       <span className="text-xs sm:text-sm font-mono text-[#526D9B] font-semibold group-hover:text-[#101C2C] transition-colors">
                         /{proj.num}
                       </span>
                       <div>
-                        <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101C2C] tracking-tight group-hover:text-[#526D9B] group-hover:translate-x-1 transition-all duration-300">
+                        <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-[#101C2C] tracking-tight group-hover:text-[#526D9B] group-hover:translate-x-1 transition-all duration-300">
                           {proj.title}
                         </h3>
-                        <p className="text-sm text-[#526D9B] mt-2 font-normal max-w-xl">
+                        <p className="text-xs sm:text-sm text-[#526D9B] mt-1 font-normal max-w-xl">
                           {proj.desc}
                         </p>
                       </div>
@@ -287,7 +287,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <div className="w-11 h-11 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] group-hover:bg-[#101C2C] group-hover:text-white text-[#101C2C] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:scale-105">
+                      <div className="w-10 h-10 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] group-hover:bg-[#101C2C] group-hover:text-white text-[#101C2C] flex items-center justify-center transition-all duration-300 shrink-0 group-hover:scale-105">
                         <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
                     </div>
@@ -298,16 +298,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 5. DIRECT CONTACT SECTION (SMOOTH SCROLL REVEAL) ── */}
-        <section id="contact" className="py-24 sm:py-36 px-6 border-t border-[#101C2C]/10 bg-[#FFFFFF]">
-          <div className="max-w-6xl mx-auto">
+        {/* ── 5. DIRECT CONTACT & FOOTER (FULL SCREEN VIEWPORT 4) ── */}
+        <section id="contact" className="snap-start snap-always relative min-h-[100dvh] flex flex-col justify-between pt-20 border-t border-[#101C2C]/10 bg-[#FFFFFF]">
+          <div className="max-w-6xl mx-auto px-6 w-full flex-1 flex flex-col justify-center py-6">
             <ScrollReveal direction="up">
               <span className="text-xs font-mono text-[#526D9B] uppercase tracking-widest font-semibold">
                 [ 03 — GET IN TOUCH ]
               </span>
             </ScrollReveal>
 
-            <div className="mt-8 max-w-3xl">
+            <div className="mt-6 max-w-3xl">
               <ScrollReveal direction="up" delay={100}>
                 <h2 className="text-2xl sm:text-4xl font-heading font-extrabold text-[#101C2C] tracking-tight">
                   Punya visi proyek atau sistem yang ingin diakselerasi?
@@ -315,14 +315,14 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={180}>
-                <p className="mt-4 text-base sm:text-lg text-[#526D9B] leading-relaxed">
+                <p className="mt-3 text-sm sm:text-base text-[#526D9B] leading-relaxed">
                   Kami siap mendiskusikan kebutuhan teknis, estimasi timeline, serta arsitektur solusi untuk bisnis Anda.
                 </p>
               </ScrollReveal>
 
               {/* Email Direct Access */}
               <ScrollReveal direction="up" delay={260}>
-                <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 flex-wrap">
+                <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4 flex-wrap">
                   <a
                     href={`mailto:${email}`}
                     className="font-heading text-3xl sm:text-5xl font-black text-[#101C2C] hover:text-[#526D9B] tracking-tight transition-colors"
@@ -342,12 +342,12 @@ export default function Home() {
 
               {/* WhatsApp Call to Action */}
               <ScrollReveal direction="up" delay={340}>
-                <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-mono">
+                <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-mono">
                   <a
                     href="https://wa.me/6281234567890"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#101C2C] hover:bg-[#526D9B] text-[#FFFFFF] font-medium transition-colors shadow-sm"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#101C2C] hover:bg-[#526D9B] text-[#FFFFFF] font-medium transition-colors shadow-sm"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Konsultasi Cepat via WhatsApp</span>
@@ -361,28 +361,28 @@ export default function Home() {
               </ScrollReveal>
             </div>
           </div>
+
+          {/* ── FOOTER DOCKED AT BOTTOM OF FINAL SCREEN ── */}
+          <footer className="border-t border-[#101C2C]/10 px-6 py-6 sm:py-8 bg-[#E9EDF2] w-full mt-auto">
+            <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#526D9B]">
+              <div className="flex items-center gap-3">
+                <KadaekMonogram className="w-5 h-5 text-[#101C2C]" />
+                <span className="text-[#101C2C] font-heading font-extrabold tracking-widest uppercase">
+                  KADAEK
+                </span>
+              </div>
+
+              <div className="flex items-center gap-6">
+                <span>ENGINEERED PRECISION</span>
+                <span>•</span>
+                <span>JAKARTA & BANDUNG, ID</span>
+                <span>•</span>
+                <span>© 2026 ALL RIGHTS RESERVED</span>
+              </div>
+            </div>
+          </footer>
         </section>
       </main>
-
-      {/* ── 6. FOOTER ── */}
-      <footer className="border-t border-[#101C2C]/10 px-6 py-10 bg-[#E9EDF2]">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#526D9B]">
-          <div className="flex items-center gap-3">
-            <KadaekMonogram className="w-5 h-5 text-[#101C2C]" />
-            <span className="text-[#101C2C] font-heading font-extrabold tracking-widest uppercase">
-              KADAEK
-            </span>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <span>ENGINEERED PRECISION</span>
-            <span>•</span>
-            <span>JAKARTA & BANDUNG, ID</span>
-            <span>•</span>
-            <span>© 2026 ALL RIGHTS RESERVED</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

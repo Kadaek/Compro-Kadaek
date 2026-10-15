@@ -9,6 +9,13 @@ html {
   background-color: #FFFFFF;
   color: #101C2C;
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
 }
 
 body {
