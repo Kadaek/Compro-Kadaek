@@ -155,17 +155,20 @@ export default function Home() {
           <div className="max-w-5xl xl:max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
             
             {/* Center Stage Group (Headline + Floating Showcase aligned with tight, balanced rhythm) */}
-            <div className="flex-1 flex flex-col items-center justify-center my-auto py-2 sm:py-4 gap-3 sm:gap-5 md:gap-7">
+            <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-4 gap-3 sm:gap-5 md:gap-7">
               
-              {/* Headline */}
+              {/* Headline / Slogan: Perfectly Balanced 2 Lines, Zero Orphan Words */}
               <div className="animate-creative-reveal text-center max-w-3xl sm:max-w-4xl mx-auto px-2">
-                <h1 className="font-heading text-2xl xs:text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[3.1rem] font-black text-[#101C2C] tracking-tight leading-[1.12]">
-                  Membangun sistem teknologi & produk digital modern dengan presisi rekayasa.
+                <h1 className="font-heading text-xl sm:text-4xl md:text-[2.65rem] lg:text-[2.95rem] font-black text-[#101C2C] tracking-tight leading-[1.14] [text-wrap:balance]">
+                  <span>Membangun sistem teknologi & produk digital modern</span>{" "}
+                  <span className="block text-[#101C2C]/65 font-bold mt-0.5 sm:mt-1">
+                    dengan presisi rekayasa.
+                  </span>
                 </h1>
               </div>
 
-              {/* Center Stage: Floating Software Product Cards */}
-              <div className="animate-creative-reveal-delay-1 w-full flex items-center justify-center">
+              {/* Center Stage: Floating Software Product Platform Console */}
+              <div className="animate-creative-reveal-delay-1 w-full flex items-center justify-center pt-0.5 sm:pt-1">
                 <HeroFloatingShowcase />
               </div>
 
