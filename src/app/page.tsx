@@ -149,57 +149,72 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (FULL SCREEN VIEWPORT 1) ── */}
+      {/* ── 2. HERO SECTION (CREATIVE STUDIO FULL VIEWPORT) ── */}
       <main className="flex-1">
-        <section id="about" className="snap-start snap-always relative min-h-[100dvh] flex items-center justify-center bg-[#FFFFFF] overflow-hidden pt-20 pb-12">
-          <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-              {/* Left Column: Editorial Headline & Manifesto */}
-              <div className="lg:col-span-6">
-                <ScrollReveal direction="up" delay={0}>
-                  <h1 className="font-heading text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08]">
-                    Membangun sistem teknologi & produk digital modern dengan{" "}
-                    <span className="text-[#526D9B]">presisi rekayasa.</span>
-                  </h1>
-                </ScrollReveal>
+        <section id="about" className="snap-start snap-always relative min-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-20 sm:pt-22 pb-8 sm:pb-10 px-6">
+          <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
+            {/* Top Monumental Creative Headline */}
+            <ScrollReveal direction="up" delay={0}>
+              <div className="text-center pt-2 sm:pt-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2]/60 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#526D9B] mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>BOUTIQUE REKAYASA PERANGKAT LUNAK</span>
+                </div>
+                <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-extrabold text-[#101C2C] tracking-tight leading-[1.02] max-w-5xl mx-auto">
+                  Membangun sistem teknologi dengan <span className="text-[#526D9B]">presisi rekayasa.</span>
+                </h1>
+              </div>
+            </ScrollReveal>
 
-                <ScrollReveal direction="up" delay={150}>
-                  <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-xl">
-                    Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
+            {/* Center Stage: 3-Photo Physical Creative Collage (Oddjob / Agency Style) */}
+            <ScrollReveal direction="up" delay={150}>
+              <div className="my-auto py-2 sm:py-4">
+                <HeroFloatingShowcase />
+              </div>
+            </ScrollReveal>
+
+            {/* Bottom High-Impact Editorial Strip */}
+            <ScrollReveal direction="up" delay={250}>
+              <div className="pt-4 border-t border-[#101C2C]/10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                {/* Manifesto Text */}
+                <div className="md:col-span-5 text-left">
+                  <p className="text-xs sm:text-sm text-[#526D9B] font-normal leading-relaxed max-w-md">
+                    Kadaek adalah studio independen. Kami berkolaborasi dengan founder & korporasi merancang infrastruktur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
                   </p>
-                </ScrollReveal>
+                </div>
 
-                {/* Action Buttons */}
-                <ScrollReveal direction="up" delay={300}>
-                  <div className="mt-10 flex flex-wrap items-center gap-4">
-                    <a
-                      href="#works"
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                    >
-                      <span>LIHAT PORTOFOLIO</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
+                {/* Center Action Buttons */}
+                <div className="md:col-span-4 flex items-center justify-start md:justify-center gap-3">
+                  <a
+                    href="#works"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                  >
+                    <span>LIHAT PORTOFOLIO</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
 
-                    <a
-                      href="https://wa.me/6281234567890"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                    >
-                      <MessageSquare className="w-4 h-4" />
-                      <span>KONSULTASI PROYEK</span>
-                    </a>
+                  <a
+                    href="https://wa.me/6281234567890"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>KONSULTASI</span>
+                  </a>
+                </div>
+
+                {/* Right Studio Telemetry */}
+                <div className="md:col-span-3 text-left md:text-right font-mono text-xs text-[#526D9B]">
+                  <div className="text-[11px] uppercase tracking-wider text-[#101C2C] font-semibold">
+                    JAKARTA & SINGAPORE
                   </div>
-                </ScrollReveal>
+                  <div className="text-[10px] text-emerald-600 font-medium mt-0.5">
+                    ● ACTIVE STUDIO FOR Q4 2026
+                  </div>
+                </div>
               </div>
-
-              {/* Right Column: Floating Sliding Reel / Animated Video Card */}
-              <div className="lg:col-span-6">
-                <ScrollReveal direction="up" delay={200}>
-                  <HeroFloatingShowcase />
-                </ScrollReveal>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
