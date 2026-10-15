@@ -31,13 +31,13 @@ export default function HeroFloatingShowcase() {
   const rightIdx = (centerIdx + 1) % 3;
 
   return (
-    <div className="relative w-full max-w-[580px] sm:max-w-[640px] mx-auto select-none py-4 sm:py-6 px-6 sm:px-12">
+    <div className="relative w-full max-w-[460px] sm:max-w-[490px] mx-auto select-none px-4 sm:px-8">
       <div className="relative w-full mx-auto">
         
-        {/* ── LEFT TILTED PHOTO (SATELLITE ACCENT, TILTED -10°) ── */}
+        {/* ── LEFT TILTED PHOTO (SATELLITE ACCENT, TILTED -8°) ── */}
         <div
           onClick={() => setCenterIdx(leftIdx)}
-          className="animate-float-slow absolute -left-6 sm:-left-12 top-1/2 -translate-y-1/2 w-[37%] sm:w-[39%] aspect-[4/3] -rotate-10 rounded-2xl overflow-hidden shadow-[0_22px_45px_-8px_rgba(16,28,44,0.32)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:-rotate-6 hover:z-30 transition-all duration-300 group"
+          className="animate-float-slow absolute -left-5 sm:-left-9 top-1/2 -translate-y-1/2 w-[37%] sm:w-[39%] aspect-[4/3] -rotate-8 rounded-2xl overflow-hidden shadow-[0_18px_36px_-6px_rgba(16,28,44,0.3)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:-rotate-4 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image
@@ -50,24 +50,24 @@ export default function HeroFloatingShowcase() {
           </div>
         </div>
 
-        {/* ── CENTER MAIN PHOTO (BESAR, GAGAH, 100% BEBAS HAMBATAN) ── */}
-        <div className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(16,28,44,0.28)] border border-[#101C2C]/10 bg-[#101C2C] z-10 transition-all duration-500">
+        {/* ── CENTER MAIN PHOTO (BESAR, FIT SEMPURNA 100VH) ── */}
+        <div className="relative w-full aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_22px_48px_-10px_rgba(16,28,44,0.25)] border border-[#101C2C]/10 bg-[#101C2C] z-10 transition-all duration-500">
           <div className="relative w-full h-full">
             <Image
               src={photos[centerIdx].src}
               alt={photos[centerIdx].alt}
               fill
               className="object-cover transition-opacity duration-500"
-              sizes="(max-width: 768px) 100vw, 60vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />
           </div>
         </div>
 
-        {/* ── RIGHT TILTED PHOTO (SATELLITE ACCENT, TILTED +10°) ── */}
+        {/* ── RIGHT TILTED PHOTO (SATELLITE ACCENT, TILTED +8°) ── */}
         <div
           onClick={() => setCenterIdx(rightIdx)}
-          className="animate-float absolute -right-6 sm:-right-12 -bottom-3 sm:-bottom-5 w-[39%] sm:w-[41%] aspect-[4/3] rotate-10 rounded-2xl overflow-hidden shadow-[0_24px_48px_-8px_rgba(16,28,44,0.34)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:rotate-6 hover:z-30 transition-all duration-300 group"
+          className="animate-float absolute -right-5 sm:-right-9 -bottom-2 sm:-bottom-4 w-[38%] sm:w-[40%] aspect-[4/3] rotate-8 rounded-2xl overflow-hidden shadow-[0_20px_40px_-6px_rgba(16,28,44,0.32)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:rotate-4 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image

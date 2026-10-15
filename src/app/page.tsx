@@ -149,45 +149,39 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (CREATIVE STUDIO FULL VIEWPORT) ── */}
+      {/* ── 2. HERO SECTION (100% FULL SCREEN VIEWPORT, NO OVERFLOW) ── */}
       <main className="flex-1">
-        <section id="about" className="snap-start snap-always relative min-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-20 sm:pt-22 pb-8 sm:pb-10 px-6">
+        <section id="about" className="snap-start snap-always relative h-[100dvh] max-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-18 pb-4 sm:pb-6 px-6">
           <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
-            {/* Top Monumental Creative Headline */}
+            {/* Top Clean Editorial Headline (No AI Badges) */}
             <ScrollReveal direction="up" delay={0}>
-              <div className="text-center pt-2 sm:pt-4">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#101C2C]/10 bg-[#E9EDF2]/60 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#526D9B] mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>BOUTIQUE REKAYASA PERANGKAT LUNAK</span>
-                </div>
-                <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-extrabold text-[#101C2C] tracking-tight leading-[1.02] max-w-5xl mx-auto">
-                  Membangun sistem teknologi dengan <span className="text-[#526D9B]">presisi rekayasa.</span>
+              <div className="text-center pt-1 sm:pt-2">
+                <h1 className="font-heading text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-black text-[#101C2C] tracking-tight leading-[1.06] max-w-4xl mx-auto">
+                  Membangun sistem teknologi & produk digital modern dengan presisi rekayasa.
                 </h1>
               </div>
             </ScrollReveal>
 
-            {/* Center Stage: 3-Photo Physical Creative Collage (Oddjob / Agency Style) */}
-            <ScrollReveal direction="up" delay={150}>
-              <div className="my-auto py-2 sm:py-4">
+            {/* Center Stage: 3-Photo Physical Creative Collage (Fits 100vh Perfectly) */}
+            <ScrollReveal direction="up" delay={120}>
+              <div className="my-auto py-1">
                 <HeroFloatingShowcase />
               </div>
             </ScrollReveal>
 
-            {/* Bottom High-Impact Editorial Strip */}
-            <ScrollReveal direction="up" delay={250}>
-              <div className="pt-4 border-t border-[#101C2C]/10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            {/* Bottom High-Impact Minimal Strip */}
+            <ScrollReveal direction="up" delay={200}>
+              <div className="pt-3 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                 {/* Manifesto Text */}
-                <div className="md:col-span-5 text-left">
-                  <p className="text-xs sm:text-sm text-[#526D9B] font-normal leading-relaxed max-w-md">
-                    Kadaek adalah studio independen. Kami berkolaborasi dengan founder & korporasi merancang infrastruktur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
-                  </p>
-                </div>
+                <p className="text-xs sm:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
+                  Studio rekayasa independen. Kami merancang arsitektur komputasi berkecepatan tinggi dan produk digital berkelas dunia.
+                </p>
 
                 {/* Center Action Buttons */}
-                <div className="md:col-span-4 flex items-center justify-start md:justify-center gap-3">
+                <div className="flex items-center gap-3 shrink-0">
                   <a
                     href="#works"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
                   >
                     <span>LIHAT PORTOFOLIO</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -197,21 +191,11 @@ export default function Home() {
                     href="https://wa.me/6281234567890"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <MessageSquare className="w-3.5 h-3.5" />
                     <span>KONSULTASI</span>
                   </a>
-                </div>
-
-                {/* Right Studio Telemetry */}
-                <div className="md:col-span-3 text-left md:text-right font-mono text-xs text-[#526D9B]">
-                  <div className="text-[11px] uppercase tracking-wider text-[#101C2C] font-semibold">
-                    JAKARTA & SINGAPORE
-                  </div>
-                  <div className="text-[10px] text-emerald-600 font-medium mt-0.5">
-                    ● ACTIVE STUDIO FOR Q4 2026
-                  </div>
                 </div>
               </div>
             </ScrollReveal>
