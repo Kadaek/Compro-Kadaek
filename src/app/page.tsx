@@ -1,32 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Preloader from "@/components/Preloader";
 import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
 import { ArrowUpRight, Copy, Check, MessageSquare } from "lucide-react";
 
 export default function Home() {
-  const [time, setTime] = useState("");
   const [copied, setCopied] = useState(false);
   const email = "halo@kadaek.id";
-
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date();
-      setTime(
-        now.toLocaleTimeString("id-ID", {
-          timeZone: "Asia/Jakarta",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        })
-      );
-    };
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -122,12 +103,7 @@ export default function Home() {
           </nav>
 
           {/* Right Action */}
-          <div className="flex items-center gap-6">
-            <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[#526D9B]/80 font-normal">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>WIB {time || "11:00"}</span>
-            </div>
-
+          <div className="flex items-center gap-4">
             <a
               href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
               target="_blank"
