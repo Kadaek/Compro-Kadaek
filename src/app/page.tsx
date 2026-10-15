@@ -117,57 +117,64 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION WITH VISIBLE AMBIENT VIDEO LOOP (NO AI SLOP) ── */}
+      {/* ── 2. HERO SECTION (EDITORIAL + CINEMATIC SHOWREEL FRAME) ── */}
       <main className="flex-1">
-        <section id="about" className="relative min-h-[85vh] flex items-center overflow-hidden border-b border-[#101C2C]/10 bg-[#FFFFFF]">
-          {/* Ambient Video Background Layer - Clearly Visible */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <section id="about" className="py-20 sm:py-28 px-6 max-w-6xl mx-auto bg-[#FFFFFF]">
+          {/* Main Editorial Headline */}
+          <div className="max-w-4xl">
+            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
+              Membangun sistem teknologi & produk digital modern dengan{" "}
+              <span className="text-[#526D9B]">presisi rekayasa.</span>
+            </h1>
+
+            <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-2xl">
+              Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="#works"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+              >
+                <span>LIHAT PORTOFOLIO</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>KONSULTASI PROYEK</span>
+              </a>
+            </div>
+          </div>
+
+          {/* ── CINEMATIC SHOWREEL FRAME (CLEAN & PROFESSIONAL LIKE ITSASIDEJOB.COM) ── */}
+          <div className="mt-16 sm:mt-20 rounded-2xl sm:rounded-3xl overflow-hidden border border-[#101C2C]/10 bg-[#101C2C] shadow-xl relative aspect-[16/9] sm:aspect-[2.4/1] max-h-[520px] w-full">
             <video
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-full h-full object-cover opacity-60 filter invert contrast-125"
+              className="w-full h-full object-cover opacity-90"
             >
               <source src="/videos/future-network.mp4" type="video/mp4" />
             </video>
-            {/* Subtle Gradient to protect text legibility while keeping video clearly visible */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-transparent to-[#FFFFFF]/50" />
-          </div>
 
-          <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 sm:py-36 w-full">
-            <div className="max-w-4xl">
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
-                Membangun sistem teknologi & produk digital modern dengan{" "}
-                <span className="text-[#526D9B]">presisi rekayasa.</span>
-              </h1>
-
-              <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-2xl">
-                Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#works"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                >
-                  <span>LIHAT PORTOFOLIO</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-
-                <a
-                  href="https://wa.me/6281234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>KONSULTASI PROYEK</span>
-                </a>
+            {/* Subtle Studio Metadata Overlay */}
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-[#101C2C]/90 via-[#101C2C]/40 to-transparent flex items-center justify-between text-xs font-mono text-white/80">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="tracking-widest uppercase font-medium">REEL 01 — ARCHITECTURAL SYSTEMS & FUTURE WORK</span>
               </div>
+              <span className="hidden sm:inline-block tracking-wider uppercase opacity-60">
+                JAKARTA / BANDUNG
+              </span>
             </div>
           </div>
         </section>
