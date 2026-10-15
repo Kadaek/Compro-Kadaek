@@ -123,7 +123,7 @@ export default function Home() {
             <KadaekBrand inverted={false} />
           </a>
 
-          {/* Clean Professional Navigation Links with Active Spy */}
+          {/* Clean Professional Navigation Links */}
           <nav className="hidden md:flex items-center gap-8 font-sans text-sm font-medium">
             {[
               { id: "about", label: "About" },
@@ -134,16 +134,13 @@ export default function Home() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`transition-colors relative py-1 ${
+                className={`transition-colors py-1 ${
                   activeSection === item.id
                     ? "text-[#101C2C] font-semibold"
                     : "text-[#101C2C]/60 hover:text-[#101C2C]"
                 }`}
               >
                 <span>{item.label}</span>
-                {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#101C2C] rounded-full transition-all" />
-                )}
               </a>
             ))}
           </nav>
