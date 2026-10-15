@@ -9,19 +9,11 @@ import { ArrowUpRight, Copy, Check, MessageSquare } from "lucide-react";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("about");
-  const [isScrolled, setIsScrolled] = useState(false);
   const email = "halo@kadaek.id";
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        setScrollProgress((window.scrollY / totalHeight) * 100);
-      }
-
       const sections = ["about", "disciplines", "works", "contact"];
       const scrollPosition = window.scrollY + 250;
 
@@ -112,20 +104,8 @@ export default function Home() {
       {/* ── CINEMATIC VISUAL PRELOADER ── */}
       <Preloader />
 
-      {/* ── TOP SCROLL PROGRESS BAR ── */}
-      <div
-        className="fixed top-0 left-0 h-[2px] bg-[#101C2C] z-[60] transition-all duration-100 ease-out"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
-      {/* ── 1. HEADER / NAVBAR (SEAMLESS TRANSPARENT, FOLLOWS BACKGROUND, NO BORDER) ── */}
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#FFFFFF]/80 backdrop-blur-md shadow-sm shadow-[#101C2C]/5"
-            : "bg-transparent"
-        }`}
-      >
+      {/* ── 1. HEADER / NAVBAR (100% TRANSPARENT, NO BORDER, DIRECTLY FOLLOWS PAGE BG) ── */}
+      <header className="sticky top-0 z-50 bg-transparent transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
           {/* Brand Logo in Deep Navy */}
           <a href="#" className="flex items-center gap-3 group">
