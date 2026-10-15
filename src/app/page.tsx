@@ -123,18 +123,21 @@ export default function Home() {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className={`transition-colors py-1 ${
+                className={`transition-colors py-1 relative ${
                   activeSection === item.id
                     ? "text-[#101C2C] font-semibold"
                     : "text-[#101C2C]/60 hover:text-[#101C2C]"
                 }`}
               >
                 <span>{item.label}</span>
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#101C2C] rounded-full" />
+                )}
               </a>
             ))}
           </nav>
 
-          {/* Right Action */}
+          {/* Right Action (Bahasa Indonesia Konsisten) */}
           <div className="flex items-center gap-3 sm:gap-4">
             <a
               href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
@@ -142,64 +145,82 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full bg-[#101C2C] text-[#FFFFFF] text-[11px] sm:text-xs font-semibold tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
             >
-              <span>TALK TO US</span>
+              <span>KONSULTASI</span>
               <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             </a>
           </div>
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (KADAEK SIGNATURE IDENTITY: COMPACT, PUNCHY & ARCHITECTURAL) ── */}
+      {/* ── 2. HERO SECTION (OPTIMIZED UX: HOOK, DUAL CTAs, UNIFIED MOCKUP & SOCIAL PROOF) ── */}
       <main className="flex-1">
-        <section id="about" className="snap-start snap-always relative min-h-[100dvh] sm:h-[100dvh] sm:max-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-16 sm:pt-20 pb-4 sm:pb-6 px-4 sm:px-6 md:px-8">
+        <section id="about" className="snap-start snap-always relative min-h-[100dvh] sm:h-[100dvh] sm:max-h-[100dvh] flex flex-col justify-between bg-[#FFFFFF] overflow-hidden pt-14 sm:pt-16 pb-3 sm:pb-5 px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl xl:max-w-6xl mx-auto w-full flex-1 flex flex-col justify-between">
             
-            {/* Center Stage Group (Iconic Punchy Title + Architectural Platform Showcase) */}
-            <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-3 gap-3 sm:gap-4 md:gap-5">
+            {/* Center Stage Group: Headline -> Subheadline -> Dual CTAs -> Non-Overlapping Mockup */}
+            <div className="flex-1 flex flex-col items-center justify-center my-auto py-1 sm:py-2 gap-3 sm:gap-4">
               
-              {/* Short, Punchy Headline (Pure text, NO badges) */}
+              {/* Headline & High-Value Copy */}
               <div className="animate-creative-reveal text-center max-w-3xl sm:max-w-4xl mx-auto px-2">
-                <h1 className="font-heading text-2xl xs:text-3xl sm:text-5xl md:text-[3.2rem] font-black text-[#101C2C] tracking-tight leading-[1.08]">
-                  Rekayasa Sistem & Platform Digital.
+                <h1 className="font-heading text-2xl xs:text-3xl sm:text-5xl md:text-[3.25rem] font-black text-[#101C2C] tracking-tight leading-[1.08] [text-wrap:balance]">
+                  Rekayasa Sistem & Platform Digital Berkinerja Tinggi.
                 </h1>
-                <p className="mt-2 text-xs sm:text-sm md:text-[15px] text-[#526D9B] font-normal leading-relaxed max-w-xl mx-auto">
-                  Arsitektur komputasi terdistribusi, infrastruktur cloud berkinerja tinggi, dan produk digital modern berpresisi tinggi.
+                <p className="mt-2.5 text-xs sm:text-sm md:text-[15px] text-[#526D9B] font-normal leading-relaxed max-w-2xl mx-auto [text-wrap:balance]">
+                  Kami merancang arsitektur komputasi terdistribusi dan platform modern yang membantu bisnis Anda scale secara masif, aman, dan tanpa downtime.
                 </p>
+
+                {/* Primary & Secondary Action CTAs (Positioned right under subheadline) */}
+                <div className="flex items-center justify-center gap-3 pt-3.5 sm:pt-4 flex-wrap">
+                  <a
+                    href="#works"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                  >
+                    <span>LIHAT PORTOFOLIO</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+
+                  <a
+                    href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>KONSULTASI PROYEK</span>
+                  </a>
+                </div>
               </div>
 
-              {/* Center Stage: Compact Architectural Showcase (Clean proportions, zero bulk) */}
+              {/* Center Stage: Unified Non-Overlapping Architectural Console */}
               <div className="animate-creative-reveal-delay-1 w-full flex items-center justify-center pt-1 sm:pt-2">
                 <HeroFloatingShowcase />
               </div>
 
             </div>
 
-            {/* Bottom High-Impact Minimal Strip (Pure text & actions, NO badges) */}
-            <div className="animate-creative-reveal-delay-2 pt-3 sm:pt-4 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shrink-0">
-              {/* Manifesto Text */}
-              <p className="text-xs sm:text-[13px] text-[#526D9B] font-normal leading-relaxed max-w-sm sm:max-w-md text-center sm:text-left">
-                Studio rekayasa independen. Kami merancang arsitektur sistem komputasi berkecepatan tinggi dan produk digital presisi.
-              </p>
+            {/* Bottom High-Impact Social Proof & Real Business Metrics (Screen 1 Trust) */}
+            <div className="animate-creative-reveal-delay-2 pt-3 sm:pt-3.5 border-t border-[#101C2C]/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shrink-0">
+              {/* 3 Real Impact Achievement Metrics */}
+              <div className="flex items-center gap-5 sm:gap-8 text-center sm:text-left flex-wrap justify-center sm:justify-start">
+                <div>
+                  <div className="text-sm sm:text-base font-heading font-black text-[#101C2C] leading-none">12+</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-[#526D9B] mt-0.5">Sistem Enterprise</div>
+                </div>
+                <div className="h-5 w-px bg-[#101C2C]/10 hidden sm:block" />
+                <div>
+                  <div className="text-sm sm:text-base font-heading font-black text-[#101C2C] leading-none">Rp 150M+</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-[#526D9B] mt-0.5">Throughput Transaksi</div>
+                </div>
+                <div className="h-5 w-px bg-[#101C2C]/10 hidden sm:block" />
+                <div>
+                  <div className="text-sm sm:text-base font-heading font-black text-emerald-600 leading-none">99.99%</div>
+                  <div className="text-[10px] sm:text-[11px] font-mono text-[#526D9B] mt-0.5">Uptime SLA Terverifikasi</div>
+                </div>
+              </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-                <a
-                  href="#works"
-                  className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-[11px] sm:text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                >
-                  <span>LIHAT PORTOFOLIO</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-
-                <a
-                  href="https://wa.me/6281234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-[11px] sm:text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>KONSULTASI</span>
-                </a>
+              {/* Location & Studio Signature */}
+              <div className="text-[11px] sm:text-xs font-mono text-[#526D9B] text-center sm:text-right">
+                <span className="text-[#101C2C] font-semibold">Kadaek Studio</span> · Jakarta & Bandung, ID
               </div>
             </div>
 
