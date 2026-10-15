@@ -98,41 +98,41 @@ export default function Home() {
       <Preloader />
 
       {/* ── 1. HEADER / NAVBAR ── */}
-      <header className="sticky top-0 z-50 bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#101C2C]/10">
-        <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-[#FFFFFF]/85 backdrop-blur-md border-b border-[#101C2C]/8">
+        <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
           {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <a href="#" className="flex items-center gap-3 group">
             <KadaekBrand />
           </a>
 
-          {/* Navigasi Bersih */}
-          <nav className="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-[#526D9B]">
-            <a href="#about" className="hover:text-[#101C2C] transition-colors font-medium">
+          {/* Clean Professional Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8 font-sans text-sm font-medium text-[#101C2C]/65">
+            <a href="#about" className="hover:text-[#101C2C] transition-colors">
               About
             </a>
-            <a href="#disciplines" className="hover:text-[#101C2C] transition-colors font-medium">
+            <a href="#disciplines" className="hover:text-[#101C2C] transition-colors">
               Disciplines
             </a>
-            <a href="#works" className="hover:text-[#101C2C] transition-colors font-medium">
+            <a href="#works" className="hover:text-[#101C2C] transition-colors">
               Works
             </a>
-            <a href="#contact" className="hover:text-[#101C2C] transition-colors font-medium">
+            <a href="#contact" className="hover:text-[#101C2C] transition-colors">
               Contact
             </a>
           </nav>
 
           {/* Right Action */}
-          <div className="flex items-center gap-5">
-            <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[#526D9B]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#101C2C]" />
-              <span>WIB {time || "00:00:00"}</span>
+          <div className="flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-[#526D9B]/80 font-normal">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>WIB {time || "11:00"}</span>
             </div>
 
             <a
               href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-medium tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
             >
               <span>TALK TO US</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
