@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Preloader from "@/components/Preloader";
 import ScrollReveal from "@/components/ScrollReveal";
+import HeroFloatingShowcase from "@/components/HeroFloatingShowcase";
 import { KadaekBrand, KadaekMonogram } from "@/components/KadaekLogo";
 import { ArrowUpRight, Copy, Check, MessageSquare } from "lucide-react";
 
@@ -160,67 +161,56 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (SPLIT: WHITE TEXT ON LEFT, PURE VIDEO ON RIGHT HALF) ── */}
+      {/* ── 2. HERO SECTION (EDITORIAL + FLOATING SLIDING SHOWCASE) ── */}
       <main className="flex-1">
-        <section id="about" className="relative min-h-[82vh] flex items-center overflow-hidden bg-[#FFFFFF]">
-          {/* Right-Half Pure Video Background (No white bg over video, half-screen) */}
-          <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 overflow-hidden pointer-events-none select-none">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover object-center opacity-90"
-            >
-              <source src="/videos/startup-office.mp4" type="video/mp4" />
-            </video>
+        <section id="about" className="relative min-h-[82vh] flex items-center bg-[#FFFFFF] overflow-hidden">
+          <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-16 sm:pb-24 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+              {/* Left Column: Editorial Headline & Manifesto */}
+              <div className="lg:col-span-7">
+                <ScrollReveal direction="up" delay={0}>
+                  <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.06]">
+                    Membangun sistem teknologi & produk digital modern dengan{" "}
+                    <span className="text-[#526D9B]">presisi rekayasa.</span>
+                  </h1>
+                </ScrollReveal>
 
-            {/* Seamless Soft Fade towards the white left half on desktop */}
-            <div className="hidden lg:block absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#FFFFFF] to-transparent" />
-            {/* Subtle bottom fade so it blends into section border */}
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
-            {/* Mobile scrim for readability when video is underneath */}
-            <div className="lg:hidden absolute inset-0 bg-[#FFFFFF]/85" />
-          </div>
+                <ScrollReveal direction="up" delay={150}>
+                  <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-xl">
+                    Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
+                  </p>
+                </ScrollReveal>
 
-          <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 sm:pt-28 pb-14 sm:pb-20 w-full">
-            <div className="max-w-xl lg:max-w-2xl">
-              <ScrollReveal direction="up" delay={0}>
-                <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08]">
-                  Membangun sistem teknologi & produk digital modern dengan{" "}
-                  <span className="text-[#526D9B]">presisi rekayasa.</span>
-                </h1>
-              </ScrollReveal>
+                {/* Action Buttons */}
+                <ScrollReveal direction="up" delay={300}>
+                  <div className="mt-10 flex flex-wrap items-center gap-4">
+                    <a
+                      href="#works"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
+                    >
+                      <span>LIHAT PORTOFOLIO</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
 
-              <ScrollReveal direction="up" delay={150}>
-                <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-xl">
-                  Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
-                </p>
-              </ScrollReveal>
+                    <a
+                      href="https://wa.me/6281234567890"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>KONSULTASI PROYEK</span>
+                    </a>
+                  </div>
+                </ScrollReveal>
+              </div>
 
-              {/* Action Buttons */}
-              <ScrollReveal direction="up" delay={300}>
-                <div className="mt-10 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#works"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
-                  >
-                    <span>LIHAT PORTOFOLIO</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-
-                  <a
-                    href="https://wa.me/6281234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
-                  >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>KONSULTASI PROYEK</span>
-                  </a>
-                </div>
-              </ScrollReveal>
+              {/* Right Column: Floating Sliding Reel / Animated Video Card */}
+              <div className="lg:col-span-5">
+                <ScrollReveal direction="up" delay={200}>
+                  <HeroFloatingShowcase />
+                </ScrollReveal>
+              </div>
             </div>
           </div>
         </section>
