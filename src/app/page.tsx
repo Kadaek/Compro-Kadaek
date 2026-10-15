@@ -165,7 +165,7 @@ export default function Home() {
 
       {/* ── 2. HERO SECTION (WITH SMOOTH SCROLL REVEAL) ── */}
       <main className="flex-1">
-        <section id="about" className="py-24 sm:py-36 px-6 max-w-6xl mx-auto bg-[#FFFFFF]">
+        <section id="about" className="pt-10 sm:pt-14 pb-20 sm:pb-28 px-6 max-w-6xl mx-auto bg-[#FFFFFF]">
           {/* Main Editorial Headline */}
           <div className="max-w-4xl">
             <ScrollReveal direction="up" delay={0}>
