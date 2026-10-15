@@ -25,7 +25,7 @@ export function KadaekMonogram({ className = "w-8 h-8" }: { className?: string }
 
 export function KadaekBrand({
   monogramSize = "w-7 h-7",
-  showSubtitle = true,
+  showSubtitle = false,
 }: {
   monogramSize?: string;
   showSubtitle?: boolean;
@@ -33,16 +33,9 @@ export function KadaekBrand({
   return (
     <div className="flex items-center gap-3">
       <KadaekMonogram className={`${monogramSize} text-[#101C2C] shrink-0`} />
-      <div className="flex flex-col">
-        <span className="font-heading text-xl font-extrabold tracking-[0.16em] uppercase text-[#101C2C] leading-none">
-          KADAEK
-        </span>
-        {showSubtitle && (
-          <span className="font-sans text-[8.5px] tracking-[0.32em] uppercase text-[#526D9B] mt-1 font-semibold">
-            TECHNOLOGY COMPANY
-          </span>
-        )}
-      </div>
+      <span className="font-heading text-xl font-extrabold tracking-[0.16em] uppercase text-[#101C2C] leading-none">
+        KADAEK
+      </span>
     </div>
   );
 }

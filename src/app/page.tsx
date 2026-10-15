@@ -331,8 +331,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#526D9B]">
           <div className="flex items-center gap-3">
             <KadaekMonogram className="w-5 h-5 text-[#101C2C]" />
-            <span className="text-[#101C2C] font-heading font-bold tracking-wider uppercase">
-              KADAEK TECHNOLOGY COMPANY
+            <span className="text-[#101C2C] font-heading font-extrabold tracking-widest uppercase">
+              KADAEK
             </span>
           </div>
 
