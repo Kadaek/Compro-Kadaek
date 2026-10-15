@@ -26,14 +26,17 @@ export function KadaekMonogram({ className = "w-8 h-8" }: { className?: string }
 export function KadaekBrand({
   monogramSize = "w-7 h-7",
   showSubtitle = false,
+  inverted = false,
 }: {
   monogramSize?: string;
   showSubtitle?: boolean;
+  inverted?: boolean;
 }) {
+  const colorClass = inverted ? "text-white" : "text-[#101C2C]";
   return (
     <div className="flex items-center gap-3">
-      <KadaekMonogram className={`${monogramSize} text-[#101C2C] shrink-0`} />
-      <span className="font-heading text-xl font-extrabold tracking-[0.16em] uppercase text-[#101C2C] leading-none">
+      <KadaekMonogram className={`${monogramSize} ${colorClass} shrink-0`} />
+      <span className={`font-heading text-xl font-extrabold tracking-[0.16em] uppercase ${colorClass} leading-none`}>
         KADAEK
       </span>
     </div>
