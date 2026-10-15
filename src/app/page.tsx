@@ -111,16 +111,16 @@ export default function Home() {
 
       {/* ── TOP SCROLL PROGRESS BAR ── */}
       <div
-        className="fixed top-0 left-0 h-[2px] bg-white z-[60] transition-all duration-100 ease-out"
+        className="fixed top-0 left-0 h-[2px] bg-[#101C2C] z-[60] transition-all duration-100 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* ── 1. HEADER / NAVBAR (CINEMATIC DARK GLASS) ── */}
-      <header className="sticky top-0 z-50 bg-[#101C2C]/85 backdrop-blur-md border-b border-white/10 text-white">
+      {/* ── 1. HEADER / NAVBAR (PURE WHITE & CLEAN) ── */}
+      <header className="sticky top-0 z-50 bg-[#FFFFFF]/85 backdrop-blur-md border-b border-[#101C2C]/8">
         <div className="max-w-6xl mx-auto px-6 h-18 flex items-center justify-between">
-          {/* Brand Logo in White */}
+          {/* Brand Logo in Deep Navy */}
           <a href="#" className="flex items-center gap-3 group">
-            <KadaekBrand inverted={true} />
+            <KadaekBrand inverted={false} />
           </a>
 
           {/* Clean Professional Navigation Links with Active Spy */}
@@ -136,13 +136,13 @@ export default function Home() {
                 href={`#${item.id}`}
                 className={`transition-colors relative py-1 ${
                   activeSection === item.id
-                    ? "text-white font-semibold"
-                    : "text-white/60 hover:text-white"
+                    ? "text-[#101C2C] font-semibold"
+                    : "text-[#101C2C]/60 hover:text-[#101C2C]"
                 }`}
               >
                 <span>{item.label}</span>
                 {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-white rounded-full transition-all" />
+                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#101C2C] rounded-full transition-all" />
                 )}
               </a>
             ))}
@@ -154,7 +154,7 @@ export default function Home() {
               href="https://wa.me/6281234567890?text=Halo%20Kadaek,%20kami%20ingin%20konsultasi%20proyek."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white text-[#101C2C] text-xs font-semibold tracking-wider hover:bg-[#E9EDF2] transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-medium tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
             >
               <span>TALK TO US</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -163,40 +163,41 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ── 2. HERO SECTION (FULL-BLEED STARTUP VIDEO BACKGROUND - NO WHITE BG) ── */}
+      {/* ── 2. HERO SECTION (SPLIT: WHITE TEXT ON LEFT, PURE VIDEO ON RIGHT HALF) ── */}
       <main className="flex-1">
-        <section id="about" className="relative pt-16 sm:pt-24 pb-24 sm:pb-36 px-6 overflow-hidden bg-[#101C2C] text-white">
-          {/* Ambient Full-Bleed Startup Video Background */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <section id="about" className="relative min-h-[82vh] flex items-center overflow-hidden bg-[#FFFFFF] border-b border-[#101C2C]/8">
+          {/* Right-Half Pure Video Background (No white bg over video, half-screen) */}
+          <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 overflow-hidden pointer-events-none select-none">
             <video
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-full h-full object-cover opacity-60 filter saturate-105 contrast-110"
+              className="w-full h-full object-cover object-center opacity-90"
             >
               <source src="/videos/startup-office.mp4" type="video/mp4" />
             </video>
 
-            {/* Cinematic Scrim & Fade to keep video fully visible while guaranteeing AAA text contrast */}
-            <div className="absolute inset-0 bg-[#101C2C]/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101C2C] via-transparent to-[#101C2C]/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#101C2C]/80 via-[#101C2C]/40 to-transparent" />
+            {/* Seamless Soft Fade towards the white left half on desktop */}
+            <div className="hidden lg:block absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#FFFFFF] to-transparent" />
+            {/* Subtle bottom fade so it blends into section border */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FFFFFF] to-transparent" />
+            {/* Mobile scrim for readability when video is underneath */}
+            <div className="lg:hidden absolute inset-0 bg-[#FFFFFF]/85" />
           </div>
 
-          <div className="relative z-10 max-w-6xl mx-auto">
-            {/* Main Editorial Headline */}
-            <div className="max-w-4xl">
+          <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 sm:py-20 w-full">
+            <div className="max-w-xl lg:max-w-2xl">
               <ScrollReveal direction="up" delay={0}>
-                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.06] drop-shadow-sm">
+                <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-[#101C2C] tracking-tight leading-[1.08]">
                   Membangun sistem teknologi & produk digital modern dengan{" "}
-                  <span className="text-[#94B2E6]">presisi rekayasa.</span>
+                  <span className="text-[#526D9B]">presisi rekayasa.</span>
                 </h1>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={150}>
-                <p className="mt-8 text-lg sm:text-xl text-white/85 font-normal leading-relaxed max-w-2xl drop-shadow-sm">
+                <p className="mt-8 text-lg sm:text-xl text-[#526D9B] font-normal leading-relaxed max-w-xl">
                   Kadaek adalah studio rekayasa perangkat lunak independen. Kami berkolaborasi dengan founder dan korporasi untuk merancang infrastruktur komputasi berkecepatan tinggi, arsitektur tangguh, dan produk digital berkelas dunia.
                 </p>
               </ScrollReveal>
@@ -206,7 +207,7 @@ export default function Home() {
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
                     href="#works"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#E9EDF2] transition-all shadow-md active:scale-95"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#101C2C] text-[#FFFFFF] text-xs font-semibold uppercase tracking-wider hover:bg-[#526D9B] transition-all shadow-sm active:scale-95"
                   >
                     <span>LIHAT PORTOFOLIO</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -216,7 +217,7 @@ export default function Home() {
                     href="https://wa.me/6281234567890"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/25 bg-white/10 text-white text-xs font-semibold uppercase tracking-wider hover:bg-white/20 transition-all shadow-md active:scale-95 backdrop-blur-md"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#101C2C]/15 bg-[#E9EDF2] text-[#101C2C] text-xs font-semibold uppercase tracking-wider hover:bg-[#101C2C] hover:text-[#FFFFFF] transition-all shadow-sm active:scale-95"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>KONSULTASI PROYEK</span>
