@@ -33,30 +33,28 @@ export default function HeroFloatingShowcase() {
   const rightIdx = (centerIdx + 1) % 3;
 
   return (
-    <div className="relative w-full max-w-lg lg:max-w-none mx-auto select-none py-10 sm:py-14 px-3 sm:px-6">
-      <div className="relative w-full aspect-[16/11] max-w-[480px] mx-auto flex items-center justify-center">
+    <div className="relative w-full max-w-lg lg:max-w-none mx-auto select-none py-8 sm:py-12 px-6 sm:px-10">
+      <div className="relative w-full max-w-[460px] mx-auto">
         
-        {/* ── LEFT TILTED PHOTO (OVERLAPPING ON THE LEFT) ── */}
+        {/* ── LEFT TILTED PHOTO (ACCENT PRINT, OUT ON TOP-LEFT) ── */}
         <div
           onClick={() => setCenterIdx(leftIdx)}
           title="Klik untuk tampilkan di tengah"
-          className="animate-float-slow absolute -left-3 sm:-left-8 top-4 sm:top-8 w-[45%] sm:w-[48%] aspect-[4/3] -rotate-8 sm:-rotate-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_16px_36px_-8px_rgba(16,28,44,0.35)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:-rotate-4 hover:z-30 transition-all duration-300"
+          className="animate-float-slow absolute -left-4 sm:-left-9 -top-3 sm:-top-5 w-[33%] sm:w-[35%] aspect-[4/3] -rotate-6 sm:-rotate-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_16px_36px_-6px_rgba(16,28,44,0.35)] border-2 border-white bg-[#101C2C] z-20 cursor-pointer hover:scale-110 hover:-rotate-3 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image
               src={photos[leftIdx].src}
               alt={photos[leftIdx].alt}
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 30vw"
+              className="object-cover group-hover:opacity-95 transition-opacity"
+              sizes="(max-width: 768px) 35vw, 20vw"
             />
-            {/* Subtle photographic print grain / sheen */}
-            <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors" />
           </div>
         </div>
 
-        {/* ── CENTER MAIN PHOTO (LARGE & PROMINENT) ── */}
-        <div className="relative w-[82%] sm:w-[84%] aspect-[16/11] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(16,28,44,0.3)] border border-[#101C2C]/12 bg-[#101C2C] z-10 transition-all duration-500">
+        {/* ── CENTER MAIN PHOTO (HERO, DOMINANT & LEGA) ── */}
+        <div className="relative w-full aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_24px_50px_-10px_rgba(16,28,44,0.28)] border-2 border-white/90 bg-[#101C2C] z-10 transition-all duration-500">
           <div className="relative w-full h-full">
             <Image
               src={photos[centerIdx].src}
@@ -69,22 +67,20 @@ export default function HeroFloatingShowcase() {
           </div>
         </div>
 
-        {/* ── RIGHT TILTED PHOTO (OVERLAPPING ON THE RIGHT) ── */}
+        {/* ── RIGHT TILTED PHOTO (ACCENT PRINT, OUT ON BOTTOM-RIGHT) ── */}
         <div
           onClick={() => setCenterIdx(rightIdx)}
           title="Klik untuk tampilkan di tengah"
-          className="animate-float absolute -right-3 sm:-right-8 bottom-2 sm:bottom-4 w-[46%] sm:w-[49%] aspect-[4/3] rotate-8 sm:rotate-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_18px_40px_-8px_rgba(16,28,44,0.38)] border border-[#101C2C]/15 bg-[#101C2C] z-20 cursor-pointer hover:scale-105 hover:rotate-4 hover:z-30 transition-all duration-300"
+          className="animate-float absolute -right-4 sm:-right-9 -bottom-3 sm:-bottom-5 w-[34%] sm:w-[36%] aspect-[4/3] rotate-6 sm:rotate-8 rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_18px_40px_-6px_rgba(16,28,44,0.38)] border-2 border-white bg-[#101C2C] z-20 cursor-pointer hover:scale-110 hover:rotate-3 hover:z-30 transition-all duration-300 group"
         >
           <div className="relative w-full h-full">
             <Image
               src={photos[rightIdx].src}
               alt={photos[rightIdx].alt}
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 30vw"
+              className="object-cover group-hover:opacity-95 transition-opacity"
+              sizes="(max-width: 768px) 35vw, 20vw"
             />
-            {/* Subtle photographic print grain / sheen */}
-            <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors" />
           </div>
         </div>
 
