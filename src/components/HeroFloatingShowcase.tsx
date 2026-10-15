@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Sparkles, Terminal } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface SlideItem {
   type: "image" | "video";
@@ -51,7 +51,7 @@ export default function HeroFloatingShowcase() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative w-full max-w-lg lg:max-w-none mx-auto select-none pb-6 sm:pb-8">
+    <div className="relative w-full max-w-lg lg:max-w-none mx-auto select-none">
       {/* ── MAIN FLOATING CARD ── */}
       <div className="animate-float rounded-2xl sm:rounded-3xl border border-[#101C2C]/12 bg-[#101C2C] shadow-2xl shadow-[#101C2C]/15 overflow-hidden aspect-[4/3] sm:aspect-[16/11] relative group">
         {/* Slides Render */}
@@ -88,14 +88,13 @@ export default function HeroFloatingShowcase() {
                 </div>
               )}
 
-              {/* Bottom Scrim & Caption (Tidy, Left-Aligned with Protected Margin) */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-[#101C2C]/95 via-[#101C2C]/50 to-transparent text-white pointer-events-none">
-                <div className="max-w-[70%] sm:max-w-[60%]">
-                  <div className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-semibold mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{slide.tag}</span>
+              {/* Bottom Scrim & Caption */}
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-[#101C2C]/90 via-[#101C2C]/40 to-transparent text-white pointer-events-none">
+                <div className="max-w-xl">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-semibold mb-1">
+                    {slide.tag}
                   </div>
-                  <h3 className="font-heading text-base sm:text-xl font-bold tracking-tight text-white leading-snug">
+                  <h3 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-white leading-snug">
                     {slide.title}
                   </h3>
                   <p className="text-xs text-white/70 mt-1 line-clamp-1">
@@ -137,24 +136,6 @@ export default function HeroFloatingShowcase() {
               }`}
             />
           ))}
-        </div>
-      </div>
-
-      {/* ── FLOATING OVERLAPPING BADGE (RAPIIH DI POJOK KANAN BAWAH TANPA MENABRAK TEKS) ── */}
-      <div className="animate-float-slow absolute -bottom-3 right-2 sm:-bottom-4 sm:-right-4 z-30 p-3 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-md border border-[#101C2C]/10 shadow-xl shadow-[#101C2C]/12 flex items-center gap-3">
-        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#101C2C] text-white flex items-center justify-center shrink-0">
-          <Terminal className="w-4 h-4 text-emerald-400" />
-        </div>
-        <div className="pr-1">
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] sm:text-xs font-heading font-extrabold text-[#101C2C] uppercase tracking-wider">
-              KADAEK LABS
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          </div>
-          <p className="text-[10px] sm:text-[11px] font-mono text-[#526D9B] mt-0.5 whitespace-nowrap">
-            Precision Systems · ID & SG
-          </p>
         </div>
       </div>
     </div>
