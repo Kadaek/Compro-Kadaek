@@ -23,7 +23,7 @@ html {
 body {
   background-color: #FFFFFF;
   color: #101C2C;
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -33,8 +33,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 ::selection {
@@ -71,24 +75,80 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 @keyframes creative-reveal {
   0% {
     opacity: 0;
-    transform: translateY(22px) scale(0.98);
-    filter: blur(6px);
+    transform: translate3d(0, 16px, 0);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0px);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-creative-reveal {
-  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: creative-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-creative-reveal-delay-1 {
-  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  animation: creative-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
 .animate-creative-reveal-delay-2 {
-  animation: creative-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: creative-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
 }
+
+/* ── ULTRA-SMOOTH & LIGHTWEIGHT PRELOADER (PURE GPU TRANSFORMS, ZERO BLUR) ── */
+@keyframes smooth-roll-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(-140px, -80px, 0) rotate(-360deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translate3d(-8px, 0, 0) rotate(-24deg);
+  }
+  85% {
+    transform: translate3d(3px, -5px, 0) rotate(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes name-reveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes line-expand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-smooth-roll {
+  animation: smooth-roll-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-name-reveal {
+  animation: name-reveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+  will-change: transform, opacity;
+}
+
+.animate-line-expand {
+  animation: line-expand 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+  will-change: transform, opacity;
+}
+
+

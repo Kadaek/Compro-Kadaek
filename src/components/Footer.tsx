@@ -1,25 +1,63 @@
 "use client";
 
 import { KadaekMonogram } from "@/components/KadaekLogo";
+import { MessageSquare } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#101C2C]/10 px-4 sm:px-6 md:px-8 py-5 sm:py-7 bg-[#E9EDF2] w-full mt-auto">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-[#526D9B] text-center sm:text-left">
+    <footer className="border-t border-[#101C2C]/10 px-4 sm:px-6 md:px-8 py-4 sm:py-5 bg-[#F8FAFC] w-full mt-auto select-none">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-[#526D9B]">
+        
+        {/* Brand & Monogram */}
         <div className="flex items-center gap-2.5">
           <KadaekMonogram className="w-4 h-4 sm:w-5 sm:h-5 text-[#101C2C]" />
           <span className="text-[#101C2C] font-heading font-extrabold tracking-widest uppercase text-xs sm:text-sm">
             KADAEK
           </span>
+          <span className="text-slate-300">/</span>
+          <span className="text-[11px] text-[#526D9B] font-mono">Curated Developer Hub</span>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-3 gap-y-1 text-[10px] sm:text-xs">
-          <span>CURATED DEVELOPER HUB</span>
-          <span>•</span>
-          <span>BUILT FOR BUILDERS</span>
-          <span>•</span>
-          <span>© 2026</span>
+        {/* Developer Ecosystem Links */}
+        <div className="flex items-center gap-4 text-[11px] text-[#526D9B]">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-[#101C2C] transition-colors"
+          >
+            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a
+            href="https://discord.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-[#101C2C] transition-colors"
+          >
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span>Discord</span>
+          </a>
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-[#101C2C] transition-colors"
+          >
+            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            <span>X (Twitter)</span>
+          </a>
         </div>
+
+        {/* Copyright */}
+        <div className="text-[10px] sm:text-[11px] text-[#526D9B]">
+          <span>© 2026 Kadaek Team · Built for Indonesian Developers</span>
+        </div>
+
       </div>
     </footer>
   );
